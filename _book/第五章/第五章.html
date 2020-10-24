@@ -1,0 +1,551 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>第五章 生成自然语言解释的神经网络 · Blankj's Glory</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Blankj">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../第六章/第六章.html" />
+    
+    
+    <link rel="prev" href="../第四章/第四章.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../source/images/favicon.jpg' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../source/images/favicon.jpg' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../source/images/apple-touch-icon.jpg'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../source/images/apple-touch-icon.jpg">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../source/images/apple-touch-icon.jpg">
+        
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Blankj","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blankj.com" target="_blank" class="custom-link">我的狗窝</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">摘要</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../摘要/Abstract.html">
+            
+                <a href="../摘要/Abstract.html">
+            
+                    
+                    摘要
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第一章</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../第一章/第一章.html">
+            
+                <a href="../第一章/第一章.html">
+            
+                    
+                     简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第二章</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../第二章/第二章.html">
+            
+                <a href="../第二章/第二章.html">
+            
+                    
+                    第二章  深度神经网络解释的背景知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第三章</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../第三章/chapter3.html">
+            
+                <a href="../第三章/chapter3.html">
+            
+                    
+                    第三章 基于特征解释的难点和主观性
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第四章</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../第四章/第四章.html">
+            
+                <a href="../第四章/第四章.html">
+            
+                    
+                    第四章 验证基于特征的事后解释方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第五章</li>
+        
+        
+    
+        <li class="chapter active" data-level="6.1" data-path="第五章.html">
+            
+                <a href="第五章.html">
+            
+                    
+                    第五章 生成自然语言解释的神经网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第六章</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../第六章/第六章.html">
+            
+                <a href="../第六章/第六章.html">
+            
+                    
+                    第六章 验证产生自然语言解释的神经网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">第七章</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../第七章/第七章.html">
+            
+                <a href="../第七章/第七章.html">
+            
+                    
+                    第七章 一般结论和观点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >第五章 生成自然语言解释的神经网络</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x7B2C;&#x4E94;&#x7AE0;-&#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;"><b></b>&#x7B2C;&#x4E94;&#x7AE0; &#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</a></li><ul><li><span class="title-icon "></span><a href="#51-&#x52A8;&#x673A;"><b></b>5.1 &#x52A8;&#x673A;</a></li><li><span class="title-icon "></span><a href="#52-&#x80CC;&#x666F;"><b></b>5.2 &#x80CC;&#x666F;</a></li><li><span class="title-icon "></span><a href="#53-e-snli&#x6570;&#x636E;&#x96C6;"><b></b>5.3 e-SNLI&#x6570;&#x636E;&#x96C6;</a></li><li><span class="title-icon "></span><a href="#54-&#x5B9E;&#x9A8C;"><b></b>5.4 &#x5B9E;&#x9A8C;</a></li><ul><li><span class="title-icon "></span><a href="#541-&#x524D;&#x63D0;&#x4E0D;&#x53EF;&#x77E5;"><b></b>5.4.1 &#x524D;&#x63D0;&#x4E0D;&#x53EF;&#x77E5;</a></li><li><span class="title-icon "></span><a href="#542-&#x9884;&#x6D4B;&#x540E;&#x89E3;&#x91CA;"><b></b>5.4.2 &#x9884;&#x6D4B;&#x540E;&#x89E3;&#x91CA;</a></li><li><span class="title-icon "></span><a href="#543-&#x89E3;&#x91CA;&#x540E;&#x9884;&#x6D4B;"><b></b>5.4.3 &#x89E3;&#x91CA;&#x540E;&#x9884;&#x6D4B;</a></li><li><span class="title-icon "></span><a href="#544-&#x901A;&#x7528;&#x7684;&#x53E5;&#x5B50;&#x8868;&#x793A;"><b></b>5.4.4 &#x901A;&#x7528;&#x7684;&#x53E5;&#x5B50;&#x8868;&#x793A;</a></li><li><span class="title-icon "></span><a href="#545-&#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6027;&#x80FD;"><b></b>5.4.5 &#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6027;&#x80FD;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7ED3;&#x8BBA;&#x548C;&#x5F00;&#x653E;&#x6027;&#x95EE;&#x9898;"><b></b>&#x7ED3;&#x8BBA;&#x548C;&#x5F00;&#x653E;&#x6027;&#x95EE;&#x9898;</a></li></ul></ul></div><a href="#&#x7B2C;&#x4E94;&#x7AE0;-&#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7B2C;&#x4E94;&#x7AE0;-&#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;"><a name="&#x7B2C;&#x4E94;&#x7AE0;-&#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;" class="anchor-navigation-ex-anchor" href="#&#x7B2C;&#x4E94;&#x7AE0;-&#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7B2C;&#x4E94;&#x7AE0;-&#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;" class="plugin-anchor" href="#&#x7B2C;&#x4E94;&#x7AE0;-&#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B2C;&#x4E94;&#x7AE0; &#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h1>
+<p>&#x5728;&#x672C;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x5C06;&#x57FA;&#x4E8E;(Camburu et al.&#xFF0C; 2018)&#x63A2;&#x7D22;&#x81EA;&#x6211;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x3002;&#x66F4;&#x51C6;&#x786E;&#x5730;&#x8BF4;&#xFF0C;&#x6211;&#x8C03;&#x67E5;&#x4E86;&#x5982;&#x679C;&#x5728;&#x8BAD;&#x7EC3;&#x65F6;&#x5BF9;&#x771F;&#x5B9E;&#x6807;&#x7B7E;&#x989D;&#x5916;&#x7ED9;&#x4E88;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#xFF0C;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x662F;&#x5426;&#x80FD;&#x6539;&#x5584;&#x5B83;&#x4EEC;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x4EE5;&#x53CA;&#x8FD9;&#x4E9B;&#x6A21;&#x578B;&#x662F;&#x5426;&#x80FD;&#x5728;&#x6D4B;&#x8BD5;&#x65F6;&#x5BF9;&#x5B83;&#x4EEC;&#x7684;&#x9884;&#x6D4B;&#x505A;&#x51FA;&#x8FD9;&#x6837;&#x7684;&#x89E3;&#x91CA;&#x3002;</p>
+<h2 id="51-&#x52A8;&#x673A;"><a name="51-&#x52A8;&#x673A;" class="anchor-navigation-ex-anchor" href="#51-&#x52A8;&#x673A;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="51-&#x52A8;&#x673A;" class="plugin-anchor" href="#51-&#x52A8;&#x673A;"><i class="fa fa-link" aria-hidden="true"></i></a>5.1 &#x52A8;&#x673A;</h2>
+<p>&#x6B63;&#x5982;&#x5728;&#x7B2C;&#x4E00;&#x7AE0;&#x4E2D;&#x63D0;&#x5230;&#x7684;&#xFF0C;&#x7B80;&#x5355;&#x5730;&#x8BAD;&#x7EC3;&#x4EE5;&#x83B7;&#x5F97;&#x5728;&#x5916;&#x62C9;&#x96C6;&#x4E0A;&#x7684;&#x9AD8;&#x7CBE;&#x5EA6;&#x7684;&#x6A21;&#x578B;&#x5F80;&#x5F80;&#x4F1A;&#x5B66;&#x4F1A;&#x4F9D;&#x8D56;&#x6D45;&#x8F93;&#x5165;&#x7EDF;&#x8BA1;&#x91CF;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x6A21;&#x578B;&#x7684;&#x8106;&#x6027;&#x3002;&#x4F8B;&#x5982;&#xFF0C;Ribeiro&#x7B49;&#x4EBA;(2016)&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x79CD;&#x533A;&#x5206;&#x57FA;&#x7763;&#x6559;&#x548C;&#x65E0;&#x795E;&#x8BBA;&#x7684;&#x6587;&#x6863;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x5176;&#x6D4B;&#x8BD5;&#x51C6;&#x786E;&#x7387;&#x4E3A;94%&#x3002;&#x7136;&#x800C;&#xFF0C;&#x4ED4;&#x7EC6;&#x89C2;&#x5BDF;&#xFF0C;&#x8BE5;&#x6A21;&#x578B;&#x57FA;&#x4E8E;&#x5305;&#x542B;&#x5728;&#x6807;&#x9898;&#x4E2D;&#x7684;&#x5355;&#x8BCD;(&#x5982;&#x201C;post&#x201D;&#x3001;&#x201C;Host&#x201D;&#x548C;&#x201C;Re&#x201D;)&#x5C06;&#x7C7B;&#x5206;&#x79BB;&#x3002;&#x5728;&#x8BAD;&#x7EC3;&#x96C6;&#x548C;&#x6D4B;&#x8BD5;&#x96C6;&#x7684;&#x5047;&#x76F8;&#x5173;&#x6027;&#x5141;&#x8BB8;&#x8FD9;&#x6837;&#x7684;&#x4E0D;&#x671F;&#x671B;&#x7684;&#x6A21;&#x578B;&#x83B7;&#x5F97;&#x9AD8;&#x7CBE;&#x786E;&#x5EA6;&#x3002;&#x66F4;&#x590D;&#x6742;&#x7684;&#x9690;&#x85CF;&#x5173;&#x8054;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x4E8E;&#x4EFB;&#x610F;&#x5927;&#x578B;&#x7684;&#x4EBA;&#x5DE5;&#x6CE8;&#x91CA;&#x6570;&#x636E;&#x96C6;&#x4E2D;(Gururangan&#x7B49;&#x4EBA;&#xFF0C;2018&#x5E74;;Bhathena&#x7B49;&#x4EBA;&#xFF0C;2020&#x5E74;;&#x9648;&#x7B49;&#xFF0C;2016a;Levy&#x548C;Dagan, 2016&#x5E74;;Cai&#x7B49;&#xFF0C;2017)&#x3002;&#x8FD9;&#x79CD;&#x76F8;&#x5173;&#x6027;&#x53EF;&#x80FD;&#x5F88;&#x96BE;&#x53D1;&#x73B0;&#xFF0C;&#x5373;&#x4F7F;&#x4EBA;&#x4EEC;&#x53D1;&#x73B0;&#x4E86;&#x5B83;&#x4EEC;&#xFF0C;&#x5982;&#x4F55;&#x51CF;&#x8F7B;&#x5B83;&#x4EEC;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x60AC;&#x800C;&#x672A;&#x51B3;&#x7684;&#x95EE;&#x9898;(Belinkov&#x7B49;&#x4EBA;&#xFF0C;2019&#x5E74;)&#x3002;</p>
+<p>&#x200B;        &#x5728;&#x8FD9;&#x4E00;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x8C03;&#x67E5;&#x4E86;&#x4E00;&#x4E2A;&#x65B9;&#x5411;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x5411;&#x6709;&#x53EF;&#x80FD;&#x4F7F;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x8FDC;&#x79BB;&#x4F9D;&#x8D56;&#x865A;&#x5047;&#x7684;&#x76F8;&#x5173;&#x6027;&#xFF0C;&#x5E76;&#x4E3A;&#x8FD9;&#x4E9B;&#x6A21;&#x578B;&#x7684;&#x9884;&#x6D4B;&#x63D0;&#x4F9B;&#x89E3;&#x91CA;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x5411;&#x662F;&#x589E;&#x5F3A;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x4F7F;&#x5176;&#x80FD;&#x591F;&#x5728;&#x8BAD;&#x7EC3;&#x671F;&#x95F4;&#x5B66;&#x4E60;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#xFF0C;&#x5E76;&#x5728;&#x6D4B;&#x8BD5;&#x65F6;&#x751F;&#x6210;&#x8FD9;&#x4E9B;&#x89E3;&#x91CA;&#x3002;&#x5BF9;&#x4E8E;&#x4EBA;&#x7C7B;&#x6765;&#x8BF4;&#xFF0C;&#x89E3;&#x91CA;&#x5728;&#x6784;&#x5EFA;&#x5206;&#x7C7B;&#x548C;&#x6CDB;&#x5316;&#x7684;&#x6982;&#x5FF5;&#x8868;&#x5F81;&#x65B9;&#x9762;&#x53D1;&#x6325;&#x7740;&#x5173;&#x952E;&#x4F5C;&#x7528;(Williams&#x548C;Lombrozo, 2010;Lombrozo, 2009)&#x3002;&#x4EBA;&#x7C7B;&#x4E5F;&#x4ECE;&#x7B2C;&#x4E00;&#x6B21;&#x5728;&#x4E00;&#x4E2A;&#x73AF;&#x5883;&#x4E2D;&#x884C;&#x52A8;&#x4E4B;&#x524D;&#x9605;&#x8BFB;&#x89E3;&#x91CA;&#x4E2D;&#x83B7;&#x76CA;&#x826F;&#x591A;(Tsividis&#x7B49;&#x4EBA;&#xFF0C;2017)&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x89E3;&#x91CA;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x5728;&#x4E00;&#x4E2A;&#x66F4;&#x597D;&#x7684;&#x521D;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x5B66;&#x4E60;&#x6B63;&#x786E;&#x7684;&#x529F;&#x80FD;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x5728;&#x6D4B;&#x8BD5;&#x65F6;&#xFF0C;&#x751F;&#x6210;&#x6B63;&#x786E;&#x7684;&#x8BBA;&#x8BC1;&#xFF0C;&#x83B7;&#x5F97;&#x8F83;&#x9AD8;&#x7684;&#x7CBE;&#x5EA6;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x4F7F;&#x6A21;&#x578B;&#x5177;&#x6709;&#x66F4;&#x9AD8;&#x7684;&#x900F;&#x660E;&#x5EA6;&#x548C;&#x4FE1;&#x4EFB;&#x5EA6;&#x3002;</p>
+<p>&#x200B;        &#x5C06;&#x5916;&#x90E8;&#x77E5;&#x8BC6;&#x7EB3;&#x5165;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x4EA7;&#x751F;&#x66F4;&#x5065;&#x58EE;&#x7684;&#x6A21;&#x578B;(Glockner&#x7B49;&#xFF0C;2018b)&#x3002;&#x81EA;&#x7531;&#x5F62;&#x5F0F;&#x7684;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x662F;&#x4E00;&#x79CD;&#x5916;&#x90E8;&#x77E5;&#x8BC6;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x5B83;&#x6BD4;&#x5F62;&#x5F0F;&#x8BED;&#x8A00;&#x6709;&#x4EE5;&#x4E0B;&#x4F18;&#x70B9;&#x3002;&#x9996;&#x5148;&#xFF0C;&#x4EBA;&#x7C7B;&#x5F88;&#x5BB9;&#x6613;&#x63D0;&#x4F9B;&#x81EA;&#x7531;&#x5F62;&#x5F0F;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x4ECE;&#x800C;&#x6D88;&#x9664;&#x4E86;&#x5B66;&#x4E60;&#x751F;&#x6210;&#x6B63;&#x5F0F;&#x8BED;&#x8A00;&#x7684;&#x989D;&#x5916;&#x52AA;&#x529B;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x6536;&#x96C6;&#x6B64;&#x7C7B;&#x6570;&#x636E;&#x96C6;&#x53D8;&#x5F97;&#x66F4;&#x7B80;&#x5355;&#x3002;&#x5176;&#x6B21;&#xFF0C;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x53EF;&#x80FD;&#x6F5C;&#x5728;&#x5730;&#x4ECE;&#x73B0;&#x6709;&#x7684;&#x5927;&#x89C4;&#x6A21;&#x81EA;&#x7531;&#x683C;&#x5F0F;&#x6587;&#x672C;&#x4E2D;&#x6316;&#x6398;&#x51FA;&#x6765;&#x3002;&#x6700;&#x540E;&#xFF0C;&#x5BF9;&#x4E8E;&#x9700;&#x8981;&#x65AD;&#x8A00;&#x6A21;&#x578B;&#x53EF;&#x9760;&#x6027;&#x7684;&#x7EC8;&#x7AEF;&#x7528;&#x6237;&#x6765;&#x8BF4;&#xFF0C;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x662F;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x7684;&#x3002;</p>
+<p>&#x200B;        &#x5C3D;&#x7BA1;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x5728;&#x63D0;&#x9AD8;&#x5B66;&#x4E60;&#x80FD;&#x529B;&#x548C;&#x900F;&#x660E;&#x5EA6;&#x65B9;&#x9762;&#x5177;&#x6709;&#x6F5C;&#x529B;&#xFF0C;&#x4F46;&#x6B63;&#x5982;2.2.4&#x8282;&#x4E2D;&#x6240;&#x8BA8;&#x8BBA;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x793E;&#x533A;&#x4E2D;&#x6B64;&#x7C7B;&#x6570;&#x636E;&#x96C6;&#x4ECD;&#x7136;&#x5F88;&#x7A00;&#x7F3A;&#x3002;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x4E0D;&#x8DB3;&#xFF0C;&#x6211;&#x4E3A;SNLI&#x6570;&#x636E;&#x96C6;&#x6536;&#x96C6;&#x4E86;&#x4E00;&#x4E2A;&#x5DE8;&#x5927;&#x7684;&#x3001;&#x5305;&#x542B;~ 570K&#x4EBA;&#x7C7B;&#x6CE8;&#x91CA;&#x7684;&#x89E3;&#x91CA;&#x7684;&#x8BED;&#x6599;&#x5E93;(Bowman et al.&#xFF0C; 2015)&#x3002;&#x6211;&#x9009;&#x62E9;SNLI&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x6784;&#x6210;&#x4E86;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x7406;&#x89E3;&#x7684;&#x4E00;&#x4E2A;&#x6709;&#x5F71;&#x54CD;&#x529B;&#x7684;&#x8BED;&#x6599;&#x5E93;&#xFF0C;&#x800C;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x7406;&#x89E3;&#x9700;&#x8981;&#x5BF9;&#x5E38;&#x8BC6;&#x6027;&#x77E5;&#x8BC6;&#x7684;&#x7EC6;&#x5FAE;&#x5DEE;&#x522B;&#x8FDB;&#x884C;&#x6DF1;&#x5EA6;&#x540C;&#x5316;&#x3002;&#x6211;&#x628A;&#x8FD9;&#x4E2A;&#x89E3;&#x91CA;-&#x6269;&#x5145;&#x6570;&#x636E;&#x96C6;&#x53EB;&#x505A;e-SNLI&#xFF0C;&#x6211;&#x516C;&#x5F00;&#x53D1;&#x5E03;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x662F;&#x4E3A;&#x4E86;&#x63A8;&#x52A8;&#x7528;&#x81EA;&#x7531;&#x5F62;&#x5F0F;&#x7684;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x8BAD;&#x7EC3;&#x548C;&#x751F;&#x6210;&#x65B9;&#x9762;&#x7684;&#x7814;&#x7A76;&#x3002;</p>
+<p>&#x200B;        &#x5176;&#x6B21;&#xFF0C;&#x6211;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x6765;&#x8BF4;&#xFF0C;&#x57FA;&#x4E8E;&#x865A;&#x5047;&#x7684;&#x5173;&#x8054;&#x4EA7;&#x751F;&#x6B63;&#x786E;&#x7684;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#xFF0C;&#x8981;&#x6BD4;&#x57FA;&#x4E8E;&#x8FD9;&#x79CD;&#x5173;&#x8054;&#x4EA7;&#x751F;&#x6B63;&#x786E;&#x7684;&#x6807;&#x7B7E;&#x56F0;&#x96BE;&#x5F97;&#x591A;&#x3002;</p>
+<p>&#x200B;        &#x7B2C;&#x4E09;&#xFF0C;&#x6211;&#x5F00;&#x53D1;&#x4E86;&#x9884;&#x6D4B;&#x6807;&#x7B7E;&#x5E76;&#x5BF9;&#x5176;&#x9884;&#x6D4B;&#x505A;&#x51FA;&#x89E3;&#x91CA;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x5E76;&#x8C03;&#x67E5;&#x6240;&#x4EA7;&#x751F;&#x89E3;&#x91CA;&#x7684;&#x6B63;&#x786E;&#x6027;&#x3002;</p>
+<p>&#x200B;        &#x6700;&#x540E;&#xFF0C;&#x6211;&#x7814;&#x7A76;&#x4E86;&#x8BAD;&#x7EC3;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x4EA7;&#x751F;&#x66F4;&#x597D;&#x7684;&#x7531;&#x8BE5;&#x6A21;&#x578B;&#x4EA7;&#x751F;&#x7684;&#x901A;&#x7528;&#x8BED;&#x53E5;&#x8868;&#x793A;&#xFF0C;&#x4EE5;&#x53CA;&#x5728;&#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x6709;&#x66F4;&#x597D;&#x7684;&#x6027;&#x80FD;&#x3002;</p>
+<p><strong>&#x6CE8;&#x610F;</strong> &#x5728;&#x8FD9;&#x4E00;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x7528;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x6982;&#x5FF5;&#x6765;&#x6307;&#x4EE3;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x771F;&#x5B9E;&#x6807;&#x8BB0;&#x7684;&#x6B63;&#x786E;&#x8BBA;&#x8BC1;&#x3002;&#x8FD9;&#x4E0D;&#x5E94;&#x4E0E;&#x5FE0;&#x5B9E;&#x89E3;&#x91CA;&#x7684;&#x6982;&#x5FF5;&#x76F8;&#x6DF7;&#x6DC6;&#xFF0C;&#x5FE0;&#x5B9E;&#x89E3;&#x91CA;&#x662F;&#x6307;&#x89E3;&#x91CA;&#x63CF;&#x8FF0;&#x6A21;&#x578B;&#x51B3;&#x7B56;&#x8FC7;&#x7A0B;&#x7684;&#x51C6;&#x786E;&#x6027;&#xFF0C;&#x5982;2.4&#x8282;&#x6240;&#x8FF0;&#x3002;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x4EA7;&#x751F;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x80FD;&#x529B;&#x662F;&#x6B64;&#x7C7B;&#x6A21;&#x578B;&#x53D1;&#x5C55;&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x65B9;&#x9762;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x6709;&#x65F6;&#x9700;&#x8981;&#x6B63;&#x786E;&#x7684;&#x8BBA;&#x8BC1;&#xFF0C;&#x4EE5;&#x53CA;&#x6B63;&#x786E;&#x7684;&#x6700;&#x7EC8;&#x7B54;&#x6848;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x8FD9;&#x4E00;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x5C06;&#x68C0;&#x89C6;&#x6240;&#x4ECB;&#x7ECD;&#x7684;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x6240;&#x4EA7;&#x751F;&#x7684;&#x89E3;&#x91CA;&#x7684;&#x6B63;&#x786E;&#x6027;&#x3002;&#x5728;&#x4E0B;&#x4E00;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x5C06;&#x8FDB;&#x4E00;&#x6B65;&#x8BC1;&#x5B9E;&#x8FD9;&#x4E9B;&#x89E3;&#x91CA;&#x7684;&#x771F;&#x5B9E;&#x6027;&#x3002;</p>
+<h2 id="52-&#x80CC;&#x666F;"><a name="52-&#x80CC;&#x666F;" class="anchor-navigation-ex-anchor" href="#52-&#x80CC;&#x666F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="52-&#x80CC;&#x666F;" class="plugin-anchor" href="#52-&#x80CC;&#x666F;"><i class="fa fa-link" aria-hidden="true"></i></a>5.2 &#x80CC;&#x666F;</h2>
+<p>&#x8BC6;&#x522B;&#x6587;&#x672C;&#x8574;&#x6DB5;&#x662F;&#x4E00;&#x9879;&#x91CD;&#x8981;&#x7684;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x7406;&#x89E3;&#x4EFB;&#x52A1;&#x3002;&#x7ED9;&#x5B9A;&#x4E00;&#x5BF9;&#x88AB;&#x79F0;&#x4E3A;&#x524D;&#x63D0;&#x548C;&#x5047;&#x8BBE;&#x7684;&#x53E5;&#x5B50;&#xFF0C;&#x4EFB;&#x52A1;&#x5305;&#x62EC;&#x5C06;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x5212;&#x5206;&#x4E3A;(a)&#x6697;&#x542B;&#xFF0C;&#x5982;&#x679C;&#x524D;&#x63D0;&#x4E0E;&#x5047;&#x8BBE;&#x76F8;&#x8F85;&#x76F8;&#x6210;;(b)&#x77DB;&#x76FE;&#xFF0C;&#x5982;&#x679C;&#x5047;&#x8BBE;&#x4E0E;&#x524D;&#x63D0;&#x76F8;&#x77DB;&#x76FE;;(c)&#x4E2D;&#x6027;&#xFF0C;&#x5982;&#x679C;&#x65E2;&#x4E0D;&#x5B58;&#x5728;&#x6697;&#x542B;&#x4E5F;&#x4E0D;&#x5B58;&#x5728;&#x77DB;&#x76FE;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x524D;&#x63D0;&#x201C;&#x4E24;&#x4E2A;&#x533B;&#x751F;&#x7ED9;&#x75C5;&#x4EBA;&#x505A;&#x624B;&#x672F;&#x3002;&#x201D;&#x548C;&#x5047;&#x8BBE;&#x201C;&#x4E24;&#x4E2A;&#x533B;&#x751F;&#x6B63;&#x5728;&#x7ED9;&#x4E00;&#x4E2A;&#x4EBA;&#x505A;&#x624B;&#x672F;&#x3002;&#x201D;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x4E2D;&#x6027;&#x7684;&#x4E00;&#x5BF9;(&#x56E0;&#x4E3A;&#x5982;&#x679C;&#x75C5;&#x4EBA;&#x662F;&#x4EBA;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x4ECE;&#x524D;&#x63D0;&#x4E2D;&#x63A8;&#x65AD;)&#x3002;SNLI&#x6570;&#x636E;&#x96C6;(Bowman et al.&#xFF0C; 2015)&#x5305;&#x542B;&#x7EA6;570K 61&#x4E2A;&#x4EBA;&#x7C7B;&#x751F;&#x6210;&#x7684;&#x4E09;&#x5143;&#x7EC4;(&#x524D;&#x63D0;&#x3001;&#x5047;&#x8BBE;&#x3001;&#x6807;&#x7B7E;)&#x5B9E;&#x4F8B;&#xFF0C;&#x9A71;&#x52A8;&#x4E86;&#x5927;&#x91CF;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x7684;&#x5F00;&#x53D1;(Rockt&#xA8;aschel et al.&#xFF0C; 2015;Nie&#x548C;Bansal, 2017&#x5E74;;Parikh&#x7B49;&#x4EBA;&#xFF0C;2016;Chen&#x7B49;&#xFF0C;2016b;Liu et al.&#xFF0C; 2016;Chen&#x7B49;&#xFF0C;2018b;Conneau&#x7B49;&#xFF0C;2017)&#x3002;</p>
+<p>&#x200B;        &#x6B64;&#x5916;&#xFF0C;SNLI&#x7684;&#x529B;&#x91CF;&#x8D85;&#x8D8A;&#x4E86;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x63A8;&#x7406;&#x7684;&#x4EFB;&#x52A1;&#x3002;Conneau&#x7B49;&#x4EBA;(2017)&#x8868;&#x660E;&#xFF0C;&#x8BAD;&#x7EC3;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x5728;SNLI&#x4E0A;&#x751F;&#x6210;&#x901A;&#x7528;&#x53E5;&#x5B50;&#x8868;&#x793A;&#xFF0C;&#x4E0E;&#x67D0;&#x4E9B;&#x8BAD;&#x7EC3;&#x65B9;&#x6CD5;&#x76F8;&#x6BD4;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x6570;&#x91CF;&#x7EA7;&#x66F4;&#x5927;&#x4F46;&#x65E0;&#x76D1;&#x7763;&#x7684;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x53EF;&#x4EE5;&#x66F4;&#x6709;&#x6548;&#x3001;&#x66F4;&#x51C6;&#x786E;(Kiros&#x7B49;&#x4EBA;&#xFF0C;2015;Hill&#x7B49;&#xFF0C;2016)&#x3002;&#x5728;5.4.4&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x8FDB;&#x4E00;&#x6B65;&#x7814;&#x7A76;&#x4E86;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x9644;&#x52A0;&#x5C42;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x5E26;&#x6765;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x6539;&#x8FDB;&#x3002;</p>
+<p>&#x200B;        &#x6700;&#x8FD1;&#xFF0C;&#x5BF9;SNLI&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x865A;&#x5047;&#x76F8;&#x5173;&#x6027;&#x4EE5;&#x53CA;&#x4E0D;&#x540C;&#x6A21;&#x578B;&#x5982;&#x4F55;&#x4F9D;&#x8D56;&#x8FD9;&#x4E9B;&#x76F8;&#x5173;&#x6027;&#x8FDB;&#x884C;&#x4E86;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x5206;&#x6790;(Bhathena&#x7B49;&#x4EBA;&#xFF0C;2020;Gururangan&#x7B49;&#x4EBA;&#xFF0C;2018&#x5E74;;Glockner&#x7B49;&#xFF0C;2018b)&#x3002;&#x7279;&#x522B;&#x662F;Gururangan et al&#x3002;(2018)&#x8868;&#x660E;,&#x7279;&#x5B9A;&#x7684;&#x5355;&#x8BCD;&#x5047;&#x8BBE;&#x5F80;&#x5F80;&#x662F;&#x5F3A;&#x5927;&#x7684;&#x6307;&#x6807;&#x7684;&#x6807;&#x7B7E;,&#x4F8B;&#x5982;,&#x201C;friend&#x201D;&#x548C;&#x201C;old&#x201D;&#x7ECF;&#x5E38;&#x51FA;&#x73B0;&#x5728;&#x4E2D;&#x6027;&#x5047;&#x8BBE;,&#x201C;animal&#x201D;&#x548C;&#x201C;outdoor&#x201D;&#x5927;&#x591A;&#x6570;&#x65F6;&#x5019;&#x51FA;&#x73B0;&#x5728;&#x6697;&#x542B;&#x7684;&#x5047;&#x8BBE;,&#x800C;&#x201C;nobody&#x201D;&#x548C;&#x201C;sleep&#x201D;&#x5927;&#x591A;&#x51FA;&#x73B0;&#x5728;&#x77DB;&#x76FE;&#x7684;&#x5047;&#x8BBE;&#x3002;&#x4ED6;&#x4EEC;&#x8FD8;&#x8868;&#x660E;&#xFF0C;&#x4E00;&#x4E2A;&#x4E0D;&#x786E;&#x5B9A;&#x524D;&#x63D0;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x5373;&#xFF0C;&#x4E00;&#x4E2A;&#x53EA;&#x63A5;&#x53D7;&#x5047;&#x8BBE;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x5E76;&#x9884;&#x6D4B;&#x6807;&#x7B7E;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;67%&#x7684;&#x6D4B;&#x8BD5;&#x51C6;&#x786E;&#x7387;&#x3002;&#x5728;5.4.1&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x5C55;&#x793A;&#x4E86;&#x4F9D;&#x9760;&#x865A;&#x5047;&#x7684;&#x76F8;&#x5173;&#x6027;&#x6765;&#x4EA7;&#x751F;&#x89E3;&#x91CA;&#x8981;&#x6BD4;&#x4EA7;&#x751F;&#x6807;&#x7B7E;&#x56F0;&#x96BE;&#x5F97;&#x591A;&#x3002;</p>
+<h2 id="53-e-snli&#x6570;&#x636E;&#x96C6;"><a name="53-e-snli&#x6570;&#x636E;&#x96C6;" class="anchor-navigation-ex-anchor" href="#53-e-snli&#x6570;&#x636E;&#x96C6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="53-e-snli&#x6570;&#x636E;&#x96C6;" class="plugin-anchor" href="#53-e-snli&#x6570;&#x636E;&#x96C6;"><i class="fa fa-link" aria-hidden="true"></i></a>5.3 e-SNLI&#x6570;&#x636E;&#x96C6;</h2>
+<p>&#x5728;&#x672C;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x5C06;&#x4ECB;&#x7ECD;&#x6211;&#x5728;&#x4E9A;&#x9A6C;&#x900A;&#x571F;&#x8033;&#x5176;&#x673A;&#x5668;&#x4EBA;&#x4E0A;&#x6536;&#x96C6;e-SNLI&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x5FC5;&#x987B;&#x56DE;&#x7B54;&#x7684;&#x4E3B;&#x8981;&#x95EE;&#x9898;&#x662F;:&#x4E3A;&#x4EC0;&#x4E48;&#x4E00;&#x5BF9;&#x53E5;&#x5B50;&#x662F;&#x9690;&#x542B;&#x3001;&#x4E2D;&#x7ACB;&#x6216;&#x77DB;&#x76FE;&#x7684;&#x5173;&#x7CFB;?&#x6211;&#x9F13;&#x52B1;&#x6CE8;&#x91CA;&#x8005;&#x628A;&#x91CD;&#x70B9;&#x653E;&#x5728;&#x7A81;&#x51FA;&#x7684;&#x5143;&#x7D20;&#x4E0A;&#xFF0C;&#x8FD9;&#x4E9B;&#x5143;&#x7D20;&#x5F15;&#x5BFC;&#x51FA;&#x7ED9;&#x5B9A;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;&#x524D;&#x63D0;&#x548C;&#x5047;&#x8BBE;&#x4E2D;&#x91CD;&#x590D;&#x76F8;&#x540C;&#x7684;&#x90E8;&#x5206;&#x3002;&#x6211;&#x4E5F;&#x95EE;&#x4ED6;&#x4EEC;&#x53BB;&#x89E3;&#x91CA;&#x5047;&#x8BBE;&#x4E2D;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x5728;&#x524D;&#x63D0;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x90E8;&#x5206;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x6211;&#x8981;&#x6C42;&#x6CE8;&#x91CA;&#x8005;&#x63D0;&#x4F9B;&#x72EC;&#x7ACB;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x53EA;&#x6709;&#x5728;&#x9605;&#x8BFB;&#x4E86;&#x524D;&#x63D0;&#x548C;&#x5047;&#x8BBE;&#x4E4B;&#x540E;&#x624D;&#x6709;&#x610F;&#x4E49;&#x7684;&#x53E5;&#x5B50;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5BF9;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x89E3;&#x91CA;&#x662F;&#x201C;Anyone can knit&#xFF0C;not just women&#x3002;&#x201D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x201C;It cannot be inferred they are women&#x201D;&#x3002;</p>
+<p><img src="../image/5.1.png" alt=""></p>
+<p>&#x56FE;5.1:&#x6765;&#x81EA;e-SNLI&#x6570;&#x636E;&#x96C6;&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x6CE8;&#x91CA;&#x8005;&#x5F97;&#x5230;&#x4E86;&#x524D;&#x63D0;&#x3001;&#x5047;&#x8BBE;&#x548C;&#x6807;&#x7B7E;&#x3002;&#x4ED6;&#x4EEC;&#x5F3A;&#x8C03;&#x4E86;&#x4ED6;&#x4EEC;&#x8BA4;&#x4E3A;&#x5BF9;&#x6807;&#x7B7E;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x7684;&#x8BCD;&#x8BED;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x89E3;&#x91CA;&#x3002;</p>
+<p>&#x200B;        &#x6536;&#x96C6;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x7684;&#x4E3B;&#x8981;&#x6311;&#x6218;&#x662F;&#xFF0C;&#x5728;&#x4F17;&#x5305;&#x4E2D;&#xFF0C;&#x5F88;&#x96BE;&#x63A7;&#x5236;&#x81EA;&#x7531;&#x5F62;&#x5F0F;&#x6CE8;&#x89E3;&#x7684;&#x8D28;&#x91CF;&#x3002;&#x4F5C;&#x4E3A;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x6211;&#x901A;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;&#x5185;&#x68C0;&#x67E5;&#x9884;&#x5148;&#x963B;&#x6B62;&#x4E86;&#x660E;&#x663E;&#x4E0D;&#x6B63;&#x786E;&#x7684;&#x89E3;&#x91CA;&#x7684;&#x63D0;&#x4EA4;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x9664;&#x975E;&#x6BCF;&#x4E2A;&#x89E3;&#x91CA;&#x81F3;&#x5C11;&#x5305;&#x542B;&#x4E09;&#x4E2A;&#x6807;&#x8BB0;&#xFF0C;&#x800C;&#x4E14;&#x4E0D;&#x662F;&#x524D;&#x63D0;&#x6216;&#x5047;&#x8BBE;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x5426;&#x5219;&#x6CE8;&#x91CA;&#x8005;&#x4E0D;&#x5141;&#x8BB8;&#x63D0;&#x4EA4;&#x3002;&#x6307;&#x5BFC;&#x6CE8;&#x91CA;&#x8005;&#x63D0;&#x4F9B;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x8981;&#x6C42;&#x4ED6;&#x4EEC;&#x5206;&#x4E24;&#x4E2A;&#x6B65;&#x9AA4;&#x8FDB;&#x884C;&#x3002;&#x9996;&#x5148;&#xFF0C;&#x4ED6;&#x4EEC;&#x88AB;&#x8981;&#x6C42;&#x6807;&#x51FA;&#x4ED6;&#x4EEC;&#x8BA4;&#x4E3A;&#x5BF9;&#x7ED9;&#x5B9A;&#x5173;&#x7CFB;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x7684;&#x524D;&#x63D0;&#x6216;&#x5047;&#x8BBE;&#x4E2D;&#x7684;&#x5355;&#x8BCD;&#x3002;&#x5176;&#x6B21;&#xFF0C;&#x6CE8;&#x91CA;&#x8005;&#x5FC5;&#x987B;&#x7528;&#x4ED6;&#x4EEC;&#x5F3A;&#x8C03;&#x7684;&#x8BCD;&#x8BED;&#x6765;&#x8868;&#x8FF0;&#x6BCF;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#x3002;&#x6267;&#x884C;&#x6D4F;&#x89C8;&#x5668;&#x5185;&#x68C0;&#x67E5;&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;&#x9AD8;&#x4EAE;&#x663E;&#x793A;&#x7684;&#x5355;&#x8BCD;&#x6570;&#x91CF;&#x6700;&#x5C11;&#xFF0C;&#x5E76;&#x4E14;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x534A;&#x9AD8;&#x4EAE;&#x663E;&#x793A;&#x7684;&#x5355;&#x8BCD;&#x5728;&#x89E3;&#x91CA;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x4EE5;&#x4FBF;&#x89E3;&#x91CA;&#x4E0E;&#x4E3B;&#x9898;&#x4E00;&#x81F4;&#x3002;&#x4E3A;&#x4E86;&#x8BF4;&#x660E;&#x6BCF;&#x4E2A;&#x5173;&#x7CFB;&#x7684;&#x7279;&#x6B8A;&#x6027;&#xFF0C;&#x9700;&#x8981;&#x7A81;&#x51FA;&#x663E;&#x793A;&#x7684;&#x6700;&#x5C0F;&#x5355;&#x8BCD;&#x6570;&#x91CF;&#x4F9D;&#x8D56;&#x4E8E;&#x8BE5;&#x5173;&#x7CFB;&#x3002;&#x5BF9;&#x4E8E;&#x9690;&#x542B;&#x5BF9;&#xFF0C;&#x6CE8;&#x91CA;&#x8005;&#x88AB;&#x8981;&#x6C42;&#x4ECE;&#x524D;&#x63D0;&#x4E2D;&#x7A81;&#x51FA;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x8BCD;&#x3002;&#x6CE8;&#x91CA;&#x8005;&#x4E5F;&#x88AB;&#x9F13;&#x52B1;(&#x4F46;&#x4E0D;&#x662F;&#x5FC5;&#x987B;)&#x6807;&#x51FA;&#x5047;&#x8BBE;&#x4E2D;&#x7684;&#x5355;&#x8BCD;&#x3002;&#x5BF9;&#x4E8E;&#x77DB;&#x76FE;&#x5BF9;&#xFF0C;&#x4ED6;&#x4EEC;&#x88AB;&#x8981;&#x6C42;&#x5728;&#x524D;&#x63D0;&#x548C;&#x5047;&#x8BBE;&#x4E2D;&#x81F3;&#x5C11;&#x7A81;&#x51FA;&#x4E00;&#x4E2A;&#x8BCD;&#x3002;&#x5BF9;&#x4E8E;&#x4E2D;&#x6027;&#x7EC4;&#xFF0C;&#x4ED6;&#x4EEC;&#x88AB;&#x8981;&#x6C42;&#x5728;&#x5047;&#x8BBE;&#x4E2D;&#x81F3;&#x5C11;&#x7A81;&#x51FA;&#x4E00;&#x4E2A;&#x8BCD;&#xFF0C;&#x800C;&#x4E0D;&#x5141;&#x8BB8;&#x4ED6;&#x4EEC;&#x7A81;&#x51FA;&#x5047;&#x8BBE;&#x4E2D;&#x7684;&#x8BCD;&#x3002;&#x5F15;&#x5165;&#x8FD9;&#x4E00;&#x7279;&#x5B9A;&#x7EA6;&#x675F;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x5DE5;&#x4EBA;&#x6DF7;&#x6DC6;&#x524D;&#x63D0;&#x548C;&#x5047;&#x8BBE;&#x3002;&#x4E2D;&#x6027;&#x914D;&#x5BF9;&#x7ECF;&#x5E38;&#x8BA9;&#x4EBA;&#x611F;&#x5230;&#x56F0;&#x60D1;&#xFF0C;&#x56E0;&#x4E3A;&#x6CE8;&#x91CA;&#x8005;&#x5F88;&#x5BB9;&#x6613;&#x4ECE;&#x5047;&#x8BBE;&#x4E2D;&#x627E;&#x4E0D;&#x5230;&#x7684;&#x524D;&#x63D0;&#x53BB;&#x5173;&#x6CE8;&#x7EC6;&#x8282;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x53CD;&#x8FC7;&#x6765;&#x3002;&#x8FD9;&#x4E0D;&#x662F;&#x77DB;&#x76FE;&#x5BF9;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x56E0;&#x4E3A;&#x5B9E;&#x4F53;&#x4E4B;&#x95F4;&#x7684;&#x77DB;&#x76FE;&#x5173;&#x7CFB;&#x901A;&#x5E38;&#x662F;&#x5BF9;&#x79F0;&#x7684;&#xFF0C;&#x4E5F;&#x4E0D;&#x662F;&#x9690;&#x542B;&#x5BF9;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x56E0;&#x4E3A;&#x9690;&#x542B;&#x5BF9;&#x7684;&#x5B9E;&#x4F53;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x662F;&#x76F4;&#x89C2;&#x7684;(&#x4F8B;&#x5982;&#xFF0C;&#x4EBA;&#x4F1A;&#x81EA;&#x7136;&#x5730;&#x8BF4;&#x201C;dog is an animal&#x201D;&#x3002;&#x800C;&#x4E0D;&#x662F;&#x201C;An animal is a dog.&#x201D;)&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x8981;&#x6C42;&#x6CE8;&#x91CA;&#x8005;&#x7528;&#x6BCF;&#x4E2A;&#x5173;&#x8054;&#x7279;&#x6709;&#x7684;&#x9650;&#x5236;&#x6765;&#x7A81;&#x51FA;&#x8BCD;&#x8BED;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E;&#x5C06;&#x6CE8;&#x91CA;&#x8005;&#x7F6E;&#x4E8E;&#x6B63;&#x786E;&#x7684;&#x601D;&#x7EF4;&#x6A21;&#x5F0F;&#x4E2D;&#x7279;&#x522B;&#x6709;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x8FC7;&#x6EE4;&#x4E0D;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x7A81;&#x51FA;&#x663E;&#x793A;&#x7684;&#x5355;&#x8BCD;&#x4E5F;&#x53EF;&#x80FD;&#x63D0;&#x4F9B;&#x5B9D;&#x8D35;&#x7684;&#x672A;&#x6765;&#x8D44;&#x6E90;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x4E3A;&#x6CE8;&#x610F;&#x529B;&#x6A21;&#x578B;&#x63D0;&#x4F9B;&#x76D1;&#x7763;&#x6216;&#x8BC4;&#x4F30;&#x5B83;&#x4EEC;(Rockt&#xA8;aschel et al.&#xFF0C; 2015;Parikh&#x7B49;&#xFF0C;2016)&#x3002;&#x6700;&#x540E;&#xFF0C;&#x4E00;&#x4E2A;&#x6D4F;&#x89C8;&#x5668;&#x5185;&#x68C0;&#x67E5;&#x4E5F;&#x9A8C;&#x8BC1;&#x4E86;&#x6CE8;&#x91CA;&#x8005;&#x4F7F;&#x7528;&#x7684;&#x4E0D;&#x662F;&#x7A81;&#x51FA;&#x663E;&#x793A;&#x7684;&#x5355;&#x8BCD;&#xFF0C;&#x56E0;&#x4E3A;&#x6B63;&#x786E;&#x7684;&#x89E3;&#x91CA;&#x9700;&#x8981;&#x5C06;&#x8FD9;&#x4E9B;&#x5355;&#x8BCD;&#x4E4B;&#x95F4;&#x7684;&#x94FE;&#x63A5;&#x6E05;&#x6670;&#x5730;&#x8868;&#x8FBE;&#x51FA;&#x6765;&#x3002;</p>
+<p>&#x200B;        &#x6211;&#x4E3A;&#x8BAD;&#x7EC3;&#x96C6;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x6536;&#x96C6;&#x4E86;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#xFF0C;&#x4E3A;&#x9A8C;&#x8BC1;&#x548C;&#x6D4B;&#x8BD5;&#x96C6;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x6536;&#x96C6;&#x4E86;&#x4E09;&#x4E2A;&#x89E3;&#x91CA;&#x3002;&#x8868;5.1&#x5C55;&#x793A;&#x4E86;&#x6536;&#x96C6;&#x5230;&#x7684;&#x89E3;&#x91CA;&#x7684;&#x4F8B;&#x5B50;&#x3002;6325&#x4EBA;&#xFF0C;&#x5E73;&#x5747;&#x6BCF;&#x4EBA;86&#xB1;403&#x4E2A;&#x89E3;&#x91CA;&#x3002;</p>
+<p>&#x200B;        &#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x81EA;&#x52A8;&#x4EA7;&#x751F;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x6BD4;&#x5982;&#x201C;Just because[entire premise]doesn&apos;t mean[entire hypothesis]&#x201D;(&#x5BF9;&#x4E8E;&#x4E2D;&#x6027;&#x5BF9;)&#xFF0C;&#x201C;[entire]implies[entire hypothesis&#xB7;]&#x201D;(&#x5BF9;&#x4E8E;&#x9690;&#x542B;&#x5BF9;)&#xFF0C;&#x6216;&#x8005;&#x201C;It can either be[entire premise]or[entire hypothesis]&#x201D;(&#x5BF9;&#x4E8E;&#x77DB;&#x76FE;&#x5BF9;)&#xFF0C;&#x90FD;&#x662F;&#x6CA1;&#x6709;&#x4FE1;&#x606F;&#x7684;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x6536;&#x96C6;&#x4E86;&#x4E00;&#x4E2A;&#x53EF;&#x80FD;&#x7684;&#x6A21;&#x677F;&#x5217;&#x8868;&#xFF0C;&#x5982;&#x9644;&#x5F55;B&#x6240;&#x793A;&#xFF0C;&#x7528;&#x4E8E;&#x8FC7;&#x6EE4;&#x8FD9;&#x79CD;&#x65E0;&#x4FE1;&#x606F;&#x89E3;&#x91CA;&#x7684;&#x6570;&#x636E;&#x96C6;&#x3002;&#x66F4;&#x51C6;&#x786E;&#x5730;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x6A21;&#x677F;&#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x5C0F;&#x4E8E;10&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x6211;&#x8FC7;&#x6EE4;&#x4E86;&#x89E3;&#x91CA;&#x3002;&#x6211;&#x5728;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x8FD0;&#x884C;&#x4E86;&#x8FD9;&#x4E2A;&#x6A21;&#x677F;&#x68C0;&#x6D4B;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x6CE8;&#x91CA;&#x4E86;&#x68C0;&#x6D4B;&#x5230;&#x7684;&#x89E3;&#x91CA;(&#x603B;&#x5171;11%)&#x3002;</p>
+<p><strong>&#x6536;&#x96C6;&#x7684;&#x89E3;&#x91CA;&#x7684;&#x8D28;&#x91CF;&#x3002;</strong>&#x4E3A;&#x4E86;&#x8861;&#x91CF;&#x6240;&#x6536;&#x96C6;&#x89E3;&#x91CA;&#x7684;&#x8D28;&#x91CF;&#xFF0C;&#x6211;&#x968F;&#x673A;&#x62BD;&#x53D6;&#x4E86;1000&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x5E76;&#x624B;&#x52A8;&#x5C06;&#x5176;&#x6B63;&#x786E;&#x6027;&#x5728;0(&#x4E0D;&#x6B63;&#x786E;)&#x548C;1(&#x6B63;&#x786E;)&#x4E4B;&#x95F4;&#x6253;&#x5206;&#x3002;&#x4E3A;&#x4E86;&#x6F5C;&#x5728;&#xFF0C;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#x6536;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x6F5C;&#x5728;&#x7684;&#x90E8;&#x5206;&#x5206;&#x6570;$\frac{k}{n}$&#xFF0C;n&#x4E2A;&#x53C2;&#x6570;&#x4E2D;&#x6709;k&#x4E2A;&#x88AB;&#x63D0;&#x5230;&#x4E86;&#x3002;&#x5BF9;&#x4E8E;&#x4E2D;&#x6027;&#x548C;&#x77DB;&#x76FE;&#x5BF9;&#xFF0C;&#x4E00;&#x4E2A;&#x6B63;&#x786E;&#x7684;&#x8BBA;&#x8BC1;&#x5C31;&#x8DB3;&#x4EE5;&#x5F97;&#x51FA;&#x4E00;&#x4E2A;&#x6B63;&#x786E;&#x7684;&#x89E3;&#x91CA;&#x3002;</p>
+<p>&#x200B;        &#x6CE8;&#x91CA;&#x7684;&#x603B;&#x9519;&#x8BEF;&#x7387;&#x4E3A;9.6%&#xFF0C;&#x9690;&#x542B;&#x9519;&#x8BEF;&#x7387;&#x4E3A;19.5%&#xFF0C;&#x4E2D;&#x6027;&#x9519;&#x8BEF;&#x7387;&#x4E3A;7.3%&#xFF0C;&#x77DB;&#x76FE;&#x5BF9;&#x9519;&#x8BEF;&#x7387;&#x4E3A;9.4%&#x3002;&#x9690;&#x542B;&#x5BF9;&#x7684;&#x8F83;&#x9AD8;&#x9519;&#x8BEF;&#x7387;&#x9996;&#x5148;&#x662F;&#x7531;&#x4E8E;&#x90E8;&#x5206;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x56E0;&#x4E3A;&#x6CE8;&#x91CA;&#x8005;&#x6709;&#x52A8;&#x673A;&#x63D0;&#x4F9B;&#x66F4;&#x77ED;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x6240;&#x4EE5;&#x4ED6;&#x4EEC;&#x7ECF;&#x5E38;&#x53EA;&#x63D0;&#x5230;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;&#x7B2C;&#x4E8C;&#x4E2A;&#x539F;&#x56E0;&#x662F;&#xFF0C;&#x8BB8;&#x591A;&#x9690;&#x542B;&#x5BF9;&#x7684;&#x5047;&#x8BBE;&#x51E0;&#x4E4E;&#x662F;&#x524D;&#x63D0;&#x7684;&#x5B50;&#x96C6;&#xFF0C;&#x4FC3;&#x4F7F;&#x6CE8;&#x91CA;&#x8005;&#x89E3;&#x91CA;&#x524D;&#x63D0;&#x6216;&#x5047;&#x8BBE;&#x3002;&#x4E25;&#x683C;&#x5730;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E0D;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x8FD9;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x7A81;&#x51FA;&#x7684;&#x89E3;&#x91CA;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x6CE8;&#x91CA;&#x4E2D;&#x5B83;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x56E0;&#x4E3A;&#x4EBA;&#x4EEC;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x5236;&#x5B9A;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x4E8E;&#x8BBA;&#x8BC1;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7B80;&#x5355;&#x5730;&#x89E3;&#x91CA;&#x8F93;&#x5165;&#x3002;&#x672A;&#x6765;&#x7684;&#x5DE5;&#x4F5C;&#x53EF;&#x80FD;&#x4F1A;&#x7814;&#x7A76;&#x81EA;&#x52A8;&#x68C0;&#x6D4B;&#x4E0D;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x6837;&#x4EBA;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x91CD;&#x65B0;&#x6CE8;&#x91CA;&#x5B83;&#x4EEC;&#x3002;</p>
+<h2 id="54-&#x5B9E;&#x9A8C;"><a name="54-&#x5B9E;&#x9A8C;" class="anchor-navigation-ex-anchor" href="#54-&#x5B9E;&#x9A8C;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="54-&#x5B9E;&#x9A8C;" class="plugin-anchor" href="#54-&#x5B9E;&#x9A8C;"><i class="fa fa-link" aria-hidden="true"></i></a>5.4 &#x5B9E;&#x9A8C;</h2>
+<p>&#x5728;&#x672C;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x5C06;&#x6267;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x5B9E;&#x9A8C;&#xFF0C;&#x4EE5;&#x7814;&#x7A76;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x4ECE;e-SNLI&#x4E2D;&#x7684;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x4E2D;&#x5B66;&#x4E60;&#x4EE5;&#x53CA;&#x5728;&#x6D4B;&#x8BD5;&#x65F6;&#x751F;&#x6210;&#x6B64;&#x7C7B;&#x89E3;&#x91CA;&#x7684;&#x80FD;&#x529B;&#x3002;&#x9996;&#x5148;&#xFF0C;&#x6211;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x662F;&#xFF0C;&#x4E00;&#x4E2A;&#x4F9D;&#x8D56;SNLI&#x4E2D;&#x865A;&#x5047;&#x76F8;&#x5173;&#x6027;&#x6765;&#x63D0;&#x4F9B;&#x6B63;&#x786E;&#x6807;&#x7B7E;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x57FA;&#x4E8E;&#x8FD9;&#x4E9B;&#x76F8;&#x5173;&#x6027;&#x63D0;&#x4F9B;&#x6B63;&#x786E;&#x7684;&#x89E3;&#x91CA;&#x3002;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x5B9E;&#x9A8C;&#x9610;&#x660E;e-SNLI&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x662F;&#x5426;&#x80FD;&#x591F;:(i)&#x9884;&#x6D4B;&#x6807;&#x7B7E;,&#x5E76;&#x5BF9;&#x4E8E;&#x9884;&#x6D4B;&#x6807;&#x7B7E;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;(2)&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E;&#x751F;&#x6210;&#x7684;&#x89E3;&#x91CA;&#x9884;&#x6D4B;&#x6807;&#x7B7E;(3)&#x5B66;&#x4E60;&#x66F4;&#x597D;&#x901A;&#x7528;&#x53E5;&#x5B50;&#x8868;&#x793A;,(iv)&#x5728;&#x6E90;&#x57DF;&#x4E4B;&#x5916;&#x7684;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x63A8;&#x7406;&#x7684;&#x6570;&#x636E;&#x96C6;&#x8868;&#x73B0;&#x5F97;&#x66F4;&#x597D;&#x3002;</p>
+<p>&#x200B;        &#x5728;&#x6574;&#x4E2A;&#x5B9E;&#x9A8C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6A21;&#x578B;&#x5F88;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x9075;&#x5FAA;&#x4E86;Conneau&#x7B49;&#x4EBA;(2017)&#x7684;BiLSTM-Max&#x6A21;&#x578B;&#x7684;&#x67B6;&#x6784;&#x3002;&#x66F4;&#x51C6;&#x786E;&#x5730;&#x8BF4;&#xFF0C;BiLSTM- max&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x5185;&#x90E8;&#x5927;&#x5C0F;&#x4E3A;2048&#x7684;&#x53CC;&#x5411;&#x957F;&#x77ED;&#x671F;&#x8BB0;&#x5FC6;&#x5FAA;&#x73AF;&#x5355;&#x5143;(BiLSTM)&#x5206;&#x522B;&#x5BF9;&#x524D;&#x63D0;&#x548C;&#x5047;&#x8BBE;&#x8FDB;&#x884C;&#x7F16;&#x7801;(Hochreiter&#x548C;Schmidhuber, 1997;&#x8212;&#x65AF;&#x7279;&#x5C14;&#x548C;&#x5E15;&#x5229;&#x74E6;&#x5C14;&#xFF0C;1997)&#x3002;&#x4F7F;&#x7528;&#x65F6;&#x95F4;&#x6B65;&#x4E0A;&#x7684;&#x6700;&#x5927;&#x6C60;&#x5316;&#x6765;&#x83B7;&#x53D6;&#x6BCF;&#x4E2A;&#x53E5;&#x5B50;&#x7684;&#x5411;&#x91CF;&#x8868;&#x793A;(&#x7EF4;&#x5EA6;$2&#xB7;2048 = 4096$&#xFF0C;&#x7531;&#x4E8E;&#x53CC;&#x5411;&#x6027;)&#x3002;&#x8BBE;u&#x4E3A;&#x524D;&#x63D0;&#x7684;&#x5411;&#x91CF;&#x8868;&#x793A;&#xFF0C;v&#x4E3A;&#x5047;&#x8BBE;&#x7684;&#x5411;&#x91CF;&#x8868;&#x793A;&#x3002;&#x6700;&#x540E;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x662F;$f = [u,v&#xFF0C;|u&#x2212;v|&#xFF0C;u\bigodot v]$&#xFF0C;&#x5B83;&#x88AB;&#x4F20;&#x9012;&#x5230;&#x4E00;&#x4E2A;&#x591A;&#x5C42;&#x611F;&#x77E5;&#x5668;(MLP)&#xFF0C;&#x6709;&#x4E09;&#x5C42;&#xFF0C;&#x6BCF;&#x5C42;&#x5C3A;&#x5BF8;&#x4E3A;512&#xFF0C;&#x6CA1;&#x6709;&#x975E;&#x7EBF;&#x6027;&#xFF0C;&#x5B83;&#x9884;&#x6D4B;&#x6807;&#x7B7E;&#x3002;&#x8FD9;&#x662F;SNLI&#x7ECF;&#x5E38;&#x91C7;&#x7528;&#x7684;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x9AD8;&#x5C42;&#x67B6;&#x6784;(Bowman et al.&#xFF0C; 2015)&#x3002;</p>
+<p>&#x200B;        &#x4E3A;&#x4E86;&#x751F;&#x6210;&#x89E3;&#x91CA;&#xFF0C;&#x6211;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x5355;&#x5C42;&#x7684;LSTM&#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x7684;&#x5185;&#x90E8;&#x5927;&#x5C0F;&#x662F;&#x4E00;&#x4E2A;&#x8D85;&#x53C2;&#x6570;&#xFF0C;&#x503C;&#x5728;{512,1024,2048,4096}&#x4E4B;&#x95F4;&#x3002;&#x6211;&#x4E5F;&#x5C1D;&#x8BD5;&#x4E86;&#x95E8;&#x63A7;&#x5FAA;&#x73AF;&#x5355;&#x5143;(GRUs) (Cho&#x7B49;&#x4EBA;&#xFF0C;2014)&#x4F5C;&#x4E3A;&#x89E3;&#x7801;&#x5668;&#xFF0C;&#x7136;&#x800C;&#xFF0C;LSTMs&#x5355;&#x5143;&#x5728;&#x6240;&#x6709;&#x5B9E;&#x9A8C;&#x4E2D;&#x8868;&#x73B0;&#x6700;&#x597D;&#x3002;&#x5FAA;&#x73AF;dropout(Srivastava et al.&#xFF0C; 2014)&#x4E5F;&#x5E94;&#x7528;&#x4E8E;&#x89E3;&#x91CA;&#x89E3;&#x7801;&#x5668;&#xFF0C;&#x5176;&#x6BD4;&#x7387;&#x56FA;&#x5B9A;&#x5728;0.5&#x3002;</p>
+<p>&#x200B;        &#x4E3A;&#x4E86;&#x51CF;&#x5C11;&#x751F;&#x6210;&#x89E3;&#x91CA;&#x7684;&#x8F93;&#x51FA;&#x8BCD;&#x6C47;&#x8868;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5C06;&#x5728;&#x89E3;&#x91CA;&#x8BAD;&#x7EC3;&#x96C6;&#x4E2D;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x5C11;&#x4E8E;15&#x6B21;&#x7684;&#x6807;&#x8BB0;&#x66FF;&#x6362;&#x4E3A;\<unk>&#xFF0C;&#x4ECE;&#x800C;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x223C;12K&#x6807;&#x8BB0;&#x7684;&#x8F93;&#x51FA;&#x8BCD;&#x6C47;&#x8868;&#x3002;</unk></p>
+<p>&#x200B;        &#x9884;&#x5904;&#x7406;&#x548C;&#x4F18;&#x5316;&#x4E0E;Conneau&#x7B49;&#x4EBA;(2017)&#x7684;&#x65B9;&#x6CD5;&#x76F8;&#x540C;&#x3002;&#x7279;&#x522B;&#x662F;&#xFF0C;&#x4E3A;&#x4E86;&#x5C06;&#x53E5;&#x5B50;&#x8F93;&#x5165;&#x5230;&#x6A21;&#x578B;&#x4E2D;&#xFF0C;&#x5728;&#x5B9E;&#x9A8C;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x5E76;&#x56FA;&#x5B9A;&#x4E86;&#x5DF2;&#x7ECF;&#x8BAD;&#x7EC3;&#x597D;&#x7684;GloVe&#x8BCD;&#x5D4C;&#x5165;(Pennington et al.&#xFF0C; 2014)&#x3002;&#x524D;&#x63D0;&#x548C;&#x5047;&#x8BBE;&#x88AB;&#x5207;&#x5272;&#x4E3A;&#x6700;&#x591A;84&#x4E2A;token&#xFF0C;&#x800C;&#x89E3;&#x91CA;&#x6700;&#x591A;40&#x4E2A;token(&#x8FD9;&#x4E9B;&#x9650;&#x5236;&#x662F;&#x6839;&#x636E;&#x6570;&#x636E;&#x96C6;&#x7684;&#x7EDF;&#x8BA1;&#x6765;&#x51B3;&#x5B9A;&#x7684;)&#x3002;</p>
+<p>&#x200B;        &#x6240;&#x6709;&#x6A21;&#x578B;&#x5747;&#x91C7;&#x7528;&#x968F;&#x673A;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;(SGD)&#x8BAD;&#x7EC3;&#xFF0C;&#x5B66;&#x4E60;&#x7387;&#x4ECE;0.1&#x5F00;&#x59CB;&#xFF0C;&#x6BCF;epoch&#x8870;&#x51CF;0.99&#x500D;&#x3002;&#x6211;&#x5C1D;&#x8BD5;&#x8FC7;Adam optimizer (Kingma and Ba, 2014)&#xFF0C;&#x4F46;&#x662F;SGD&#x5728;&#x6240;&#x6709;&#x7684;&#x5B9E;&#x9A8C;&#x4E2D;&#x8868;&#x73B0;&#x6700;&#x597D;&#x3002;&#x6279;&#x5927;&#x5C0F;&#x56FA;&#x5B9A;&#x5728;64&#x3002;</p>
+<p>&#x200B;        &#x5BF9;&#x4E8E;&#x5927;&#x591A;&#x6570;&#x5B9E;&#x9A8C;&#xFF0C;&#x6211;&#x4F7F;&#x7528;5&#x4E2A;&#x79CD;&#x5B50;&#x4F5C;&#x4E3A;&#x968F;&#x673A;&#x6570;&#x751F;&#x6210;&#x5668;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x5706;&#x62EC;&#x53F7;&#x4E2D;&#x7684;&#x6807;&#x51C6;&#x5DEE;&#x6765;&#x63D0;&#x4F9B;&#x5E73;&#x5747;&#x6027;&#x80FD;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x62A5;&#x544A;&#x6807;&#x51C6;&#x504F;&#x5DEE;&#xFF0C;&#x5219;&#x7ED3;&#x679C;&#x4EC5;&#x6765;&#x81EA;&#x4E00;&#x9897;&#x79CD;&#x5B50;&#x3002;</p>
+<h3 id="541-&#x524D;&#x63D0;&#x4E0D;&#x53EF;&#x77E5;"><a name="541-&#x524D;&#x63D0;&#x4E0D;&#x53EF;&#x77E5;" class="anchor-navigation-ex-anchor" href="#541-&#x524D;&#x63D0;&#x4E0D;&#x53EF;&#x77E5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="541-&#x524D;&#x63D0;&#x4E0D;&#x53EF;&#x77E5;" class="plugin-anchor" href="#541-&#x524D;&#x63D0;&#x4E0D;&#x53EF;&#x77E5;"><i class="fa fa-link" aria-hidden="true"></i></a>5.4.1 &#x524D;&#x63D0;&#x4E0D;&#x53EF;&#x77E5;</h3>
+<p>Gururangan&#x7B49;&#x4EBA;(2018)&#x8868;&#x660E;&#xFF0C;&#x4E00;&#x4E2A;&#x4EC5;&#x80FD;&#x83B7;&#x5F97;&#x5047;&#x8BBE;&#x7684;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x4F9D;&#x9760;SNLI&#x4E2D;&#x7684;&#x5047;&#x76F8;&#x5173;&#x6027;&#x9884;&#x6D4B;67%&#x7684;&#x6B63;&#x786E;&#x6807;&#x7B7E;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x8BC4;&#x4F30;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x5728;&#x591A;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x4E5F;&#x53EF;&#x4EE5;&#x4F9D;&#x8D56;&#x865A;&#x5047;&#x7684;&#x76F8;&#x5173;&#x6027;&#x6765;&#x4EA7;&#x751F;&#x6B63;&#x786E;&#x7684;&#x89E3;&#x91CA;&#x662F;&#x5F88;&#x6709;&#x8DA3;&#x7684;&#x3002;</p>
+<p><strong>&#x6A21;&#x578B;&#x3002;</strong>Hyp2Expl&#x6A21;&#x578B;&#x7531;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x6700;&#x5927;&#x6C60;&#x7684;BiLSTM&#x7F16;&#x7801;&#x5668;&#x548C;&#x4E00;&#x4E2A;LSTM&#x89E3;&#x7801;&#x5668;&#x7EC4;&#x6210;&#xFF0C;&#x524D;&#x8005;&#x4E3A;&#x5047;&#x8BBE;&#x63D0;&#x4F9B;&#x5411;&#x91CF;&#x8868;&#x793A;&#xFF0C;&#x800C;LSTM&#x89E3;&#x7801;&#x5668;&#x5219;&#x5C06;&#x8FD9;&#x79CD;&#x8868;&#x793A;&#x4F5C;&#x4E3A;&#x5176;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x548C;&#x6BCF;&#x4E2A;&#x65F6;&#x95F4;&#x6B65;&#x7684;&#x989D;&#x5916;&#x8F93;&#x5165;&#xFF0C;&#x5E76;&#x751F;&#x6210;&#x89E3;&#x91CA;&#x3002;</p>
+<p>&#x200B;        &#x4E3A;&#x4E86;&#x8FDB;&#x884C;&#x516C;&#x5E73;&#x7684;&#x6BD4;&#x8F83;&#xFF0C;&#x6211;&#x8FD8;&#x4E3A;&#x5047;&#x8BBE;&#x7684;&#x7F16;&#x7801;&#x5668;&#x5206;&#x522B;&#x8BAD;&#x7EC3;&#x4E86;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x76F8;&#x540C;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x4F46;&#x968F;&#x540E;&#x662F;&#x7528;&#x4E8E;&#x9884;&#x6D4B;&#x6807;&#x7B7E;&#x800C;&#x4E0D;&#x662F;&#x751F;&#x6210;&#x89E3;&#x91CA;&#x7684;3&#x5C42;MLP&#x3002;&#x6211;&#x79F0;&#x4E4B;&#x4E3A;Hyp2Lbl&#x3002;&#x8BE5;&#x6A21;&#x578B;&#x4E0D;&#x6267;&#x884C;&#x8D85;&#x53C2;&#x6570;&#x641C;&#x7D22;&#x3002;</p>
+<p><strong>&#x6A21;&#x578B;&#x9009;&#x62E9;&#x3002;</strong>Hyp2Expl&#x7684;&#x8D85;&#x53C2;&#x6570;&#x662F;&#x89E3;&#x7801;&#x5668;&#x7684;&#x5185;&#x90E8;&#x5927;&#x5C0F;(&#x5982;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;&#x503C;&#x4E3A;512&#x3001;1024&#x3001;2048&#x548C;4096)&#x3002;&#x6A21;&#x578B;&#x9009;&#x62E9;&#x662F;&#x901A;&#x8FC7;&#x9A8C;&#x8BC1;&#x96C6;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5F53;&#x8BD1;&#x7801;&#x5668;&#x7684;&#x5927;&#x5C0F;&#x589E;&#x52A0;&#x65F6;&#xFF0C;&#x9A8C;&#x8BC1;&#x96C6;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x4E25;&#x683C;&#x51CF;&#x5C0F;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x7531;&#x4E8E;&#x5B9E;&#x9645;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x8BD1;&#x7801;&#x5668;&#x5185;&#x90E8;&#x5927;&#x5C0F;&#x6CA1;&#x6709;&#x589E;&#x52A0;&#x5230;4096&#x4EE5;&#x4E0A;&#xFF0C;&#x8FD9;&#x662F;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x7684;&#x8D85;&#x53C2;&#x6570;&#x7684;&#x9009;&#x62E9;&#x503C;&#x3002;</p>
+<p><img src="../image/5.2.png" alt=""></p>
+<center>&#x56FE;5.2:BiLSTM-Max-PredExpl&#x6A21;&#x578B;&#x7684;&#x67B6;&#x6784;</center>
+
+<p><strong>&#x7ED3;&#x679C;</strong>&#x3002;&#x6211;&#x624B;&#x5DE5;&#x68C0;&#x67E5;&#x4E86;Hyp2Expl&#x5BF9;&#x524D;100&#x4E2A;&#x6D4B;&#x8BD5;&#x5B9E;&#x4F8B;&#x751F;&#x6210;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x6B63;&#x786E;&#x6027;&#x5F97;&#x5206;&#x4EC5;&#x4E3A;6.83&#x3002;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;Hyp2Lbl&#x5BF9;&#x540C;&#x4E00;&#x5B9E;&#x4F8B;&#x83B7;&#x5F97;&#x4E86;66&#x4E2A;&#x6B63;&#x786E;&#x6807;&#x7B7E;&#x3002;&#x8FD9;&#x9A8C;&#x8BC1;&#x4E86;&#x76F4;&#x89C9;&#xFF0C;&#x5B83;&#x662F;&#x66F4;&#x52A0;&#x56F0;&#x96BE;&#x7684;(&#x5927;&#x7EA6;10&#x500D;&#x4E8E;&#x8FD9;&#x4E2A;&#x67B6;&#x6784;)&#x4F9D;&#x8D56;&#x865A;&#x5047;&#x7684;&#x76F8;&#x5173;&#x6027;&#x6765;&#x4EA7;&#x751F;&#x6B63;&#x786E;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4F9D;&#x8D56;&#x8FD9;&#x4E9B;&#x76F8;&#x5173;&#x6027;&#x6765;&#x9884;&#x6D4B;&#x6B63;&#x786E;&#x7684;&#x6807;&#x7B7E;&#x3002;</p>
+<h3 id="542-&#x9884;&#x6D4B;&#x540E;&#x89E3;&#x91CA;"><a name="542-&#x9884;&#x6D4B;&#x540E;&#x89E3;&#x91CA;" class="anchor-navigation-ex-anchor" href="#542-&#x9884;&#x6D4B;&#x540E;&#x89E3;&#x91CA;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="542-&#x9884;&#x6D4B;&#x540E;&#x89E3;&#x91CA;" class="plugin-anchor" href="#542-&#x9884;&#x6D4B;&#x540E;&#x89E3;&#x91CA;"><i class="fa fa-link" aria-hidden="true"></i></a>5.4.2 &#x9884;&#x6D4B;&#x540E;&#x89E3;&#x91CA;</h3>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x6211;&#x7814;&#x7A76;&#x4E86;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x4E3A;&#x5176;&#x9884;&#x6D4B;&#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x80FD;&#x529B;&#x3002;</p>
+<p><strong>&#x6A21;&#x578B;</strong>&#x3002;&#x6211;&#x4F7F;&#x7528;&#x89E3;&#x91CA;&#x751F;&#x6210;&#x5668;&#x589E;&#x5F3A;&#x4E86;BiLSTM-Max&#x6A21;&#x578B;&#xFF0C;&#x65B9;&#x6CD5;&#x662F;&#x5C06;&#x7279;&#x5F81;&#x5411;&#x91CF;<strong>f</strong>&#x7B80;&#x5355;&#x5730;&#x8FDE;&#x63A5;&#x5230;&#x5355;&#x5C42;LSTM&#x89E3;&#x7801;&#x5668;&#xFF0C;&#x65E2;&#x4F5C;&#x4E3A;&#x521D;&#x59CB;&#x72B6;&#x6001;&#xFF0C;&#x53C8;&#x5728;&#x6BCF;&#x4E2A;&#x65F6;&#x95F4;&#x6B65;&#x4E2D;&#x8FDE;&#x63A5;&#x5230;&#x5B57;&#x5D4C;&#x5165;&#x8F93;&#x5165;&#x3002;&#x6211;&#x79F0;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x4E3A;BiLSTM-Max-PredExpl&#x3002;&#x4E3A;&#x4E86;&#x5C06;&#x89E3;&#x91CA;&#x9650;&#x5B9A;&#x5728;&#x6807;&#x7B7E;&#x4E0A;&#xFF0C;&#x5728;&#x89E3;&#x7801;&#x5668;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6B65;&#x8F93;&#x5165;&#x6807;&#x7B7E;(&#x5982;&#x201C;&#x9690;&#x542B;&#x201D;&#x3001;&#x201C;&#x77DB;&#x76FE;&#x201D;&#x6216;&#x201C;&#x4E2D;&#x7ACB;&#x201D;)&#x3002;&#x5728;&#x8BAD;&#x7EC3;&#x65F6;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x771F;&#x5B9E;&#x6807;&#x7B7E;&#xFF0C;&#x6D4B;&#x8BD5;&#x65F6;&#x95F4;&#xFF0C;&#x4F7F;&#x7528;&#x6A21;&#x578B;&#x9884;&#x6D4B;&#x7684;&#x6807;&#x7B7E;&#x3002;&#x6B64;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x5982;&#x56FE;5.2&#x6240;&#x793A;&#x3002;</p>
+<p><strong>Loss function&#x3002;</strong>&#x5206;&#x7C7B;&#x635F;&#x5931;&#x548C;&#x89E3;&#x91CA;&#x635F;&#x5931;&#x5747;&#x91C7;&#x7528;&#x8D1F;&#x5BF9;&#x6570;&#x4F3C;&#x7136;&#x6CD5;&#x3002;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x89E3;&#x91CA;&#x635F;&#x5931;&#x6BD4;&#x5206;&#x7C7B;&#x635F;&#x5931;&#x5728;&#x91CF;&#x7EA7;&#x4E0A;&#x8981;&#x5927;&#x5F97;&#x591A;&#xFF0C;&#x8FD9;&#x662F;&#x7531;&#x4E8E;&#x89E3;&#x91CA;&#x4E2D;&#x5927;&#x91CF;&#x8BCD;&#x8BED;&#x7684;&#x8D1F;&#x5BF9;&#x6570;&#x6982;&#x7387;&#x4E4B;&#x548C;&#x3002;&#x4E3A;&#x4E86;&#x5728;&#x8BAD;&#x7EC3;&#x65F6;&#x8003;&#x8651;&#x5230;&#x8FD9;&#x4E00;&#x5DEE;&#x5F02;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;&#x6743;&#x7CFB;&#x6570;$\alpha \in [0,1]$&#xFF0C;&#x4F7F;&#x5F97;&#x603B;&#x635F;&#x5931;&#x4E3A;
+<script type="math/tex; ">
+L_{total}=\alpha L_{label}+(1-\alpha)L_{explanation} \tag{5.1}
+</script>
+<strong>&#x6A21;&#x578B;&#x9009;&#x62E9;&#x3002;</strong>&#x5728;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x8D85;&#x53C2;&#x6570;&#x662F;&#x89E3;&#x7801;&#x5668;&#x7684;&#x5185;&#x90E8;&#x5927;&#x5C0F;&#xFF0C;$\alpha$(&#x6211;&#x9009;&#x62E9;&#x7684;&#x503C;&#x4ECE;0.1&#x5230;0.9&#xFF0C;&#x6B65;&#x957F;&#x4E3A;0.1)&#x548C;learning rate(&#x540C;&#x6837;&#xFF0C;&#x53D6;&#x503C;&#x5728;512&#x3001;1024&#x3001;2048&#x548C;4096&#x4E4B;&#x95F4;)&#x3002;&#x4E3A;&#x4E86;&#x8003;&#x5BDF;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x5728;&#x4E0D;&#x727A;&#x7272;&#x9884;&#x6D4B;&#x7CBE;&#x5EA6;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5982;&#x4F55;&#x4EA7;&#x751F;&#x89E3;&#x91CA;&#xFF0C;&#x672C;&#x5B9E;&#x9A8C;&#x4EC5;&#x4EE5;&#x6807;&#x7B7E;&#x7CBE;&#x5EA6;&#x4F5C;&#x4E3A;&#x6A21;&#x578B;&#x9009;&#x62E9;&#x7684;&#x6807;&#x51C6;&#x3002;&#x4F5C;&#x4E3A;&#x672A;&#x6765;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x53EF;&#x4EE5;&#x68C0;&#x67E5;&#x6807;&#x7B7E;&#x548C;&#x89E3;&#x91CA;&#x6027;&#x80FD;&#x4E4B;&#x95F4;&#x7684;&#x4E0D;&#x540C;&#x6743;&#x8861;&#x3002;&#x5F53;$\alpha = 0.6$&#x548C;&#x89E3;&#x7801;&#x5668;&#x5185;&#x90E8;&#x5C3A;&#x5BF8;&#x4E3A;512&#x65F6;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x6700;&#x4F73;&#x9A8C;&#x8BC1;&#x7CBE;&#x5EA6;&#x4E3A;84.37%&#x3002;</p>
+<p><strong>&#x7ED3;&#x679C;&#x3002;</strong>&#x5728;5&#x79CD;&#x4EE5;&#x4E0A;&#x79CD;&#x5B50;&#x4E2D;&#xFF0C;BiLSTM-Max&#x7684;&#x6D4B;&#x8BD5;&#x7CBE;&#x5EA6;&#x4E3A;84.01%(0.25)&#x3002;&#x800C;BiLSTM-Max-PredExpl&#x6A21;&#x578B;&#x7684;&#x6D4B;&#x8BD5;&#x7CBE;&#x5EA6;&#x57FA;&#x672C;&#x76F8;&#x540C;&#xFF0C;&#x4E3A;83.96%(0.26)&#xFF0C;&#x8FD9;&#x8868;&#x660E;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x727A;&#x7272;&#x6807;&#x7B7E;&#x7CBE;&#x5EA6;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x83B7;&#x5F97;&#x989D;&#x5916;&#x7684;&#x89E3;&#x91CA;&#x3002;</p>
+<p>&#x200B;        &#x5BF9;&#x4E8E;&#x751F;&#x6210;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x6D4B;&#x8BD5;&#x6DF7;&#x4E71;&#x5EA6;&#x4E3A;10.58 (0.40)&#xFF0C;BLEU(&#x53CC;&#x8BED;&#x8BC4;&#x4EF7;&#x66FF;&#x8865;)&#x5F97;&#x5206;(Papineni et al.&#xFF0C; 2002)&#x4E3A;22.40(0.70)&#x3002;&#x7531;&#x4E8E;e-SNLI&#x5BF9;&#x9A8C;&#x8BC1;&#x548C;&#x6D4B;&#x8BD5;&#x96C6;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x90FD;&#x6709;&#x4E09;&#x79CD;&#x89E3;&#x91CA;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BA1;&#x7B97;&#x7B2C;&#x4E09;&#x79CD;&#x89E3;&#x91CA;&#x76F8;&#x5BF9;&#x4E8E;&#x524D;&#x4E24;&#x79CD;&#x89E3;&#x91CA;&#x7684;BLEU&#x5206;&#x6570;&#x6765;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x6CE8;&#x91CA;&#x8005;&#x7684;BLEU&#x5206;&#x6570;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x6211;&#x83B7;&#x5F97;&#x4E86;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x6CE8;&#x91CA;BLEU&#x7684;22.51&#x5206;&#x3002;&#x4E3A;&#x4E86;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x5728;&#x8BA1;&#x7B97;&#x751F;&#x6210;&#x7684;&#x89E3;&#x91CA;&#x7684;BLEU&#x5206;&#x6570;&#x65F6;&#xFF0C;&#x6211;&#x4F7F;&#x7528;&#x4E86;&#x540C;&#x6837;&#x7684;&#x4E24;&#x79CD;&#x89E3;&#x91CA;&#x4F5C;&#x4E3A;&#x53C2;&#x8003;&#x3002;</p>
+<p>&#x200B;        &#x9274;&#x4E8E;&#x5185;&#x90E8;&#x6CE8;&#x91CA;&#x8005;&#x7684;&#x5206;&#x6570;&#x5F88;&#x4F4E;&#xFF0C;&#x5E76;&#x4E14;&#x751F;&#x6210;&#x7684;&#x89E3;&#x91CA;&#x7684;BLEU&#x5206;&#x6570;&#x51E0;&#x4E4E;&#x4E0E;&#x5185;&#x90E8;&#x6CE8;&#x91CA;&#x8005;&#x7684;BLEU&#x5206;&#x6570;&#x76F8;&#x5339;&#x914D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x8FD9;&#x4E2A;&#x6307;&#x6807;&#x5728;&#x8BC4;&#x4F30;&#x751F;&#x6210;&#x89E3;&#x91CA;&#x7684;&#x8D28;&#x91CF;&#x548C;&#x6B63;&#x786E;&#x6027;&#x65B9;&#x9762;&#x662F;&#x4E0D;&#x53EF;&#x9760;&#x7684;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x624B;&#x5DE5;&#x6CE8;&#x91CA;&#x4E86;&#x6D4B;&#x8BD5;&#x96C6;&#x4E2D;&#x7684;&#x524D;100&#x4E2A;&#x5B9E;&#x4F8B;(&#x9075;&#x5FAA;&#x4E0E;5.3&#x90E8;&#x5206;&#x76F8;&#x540C;&#x7684;&#x90E8;&#x5206;&#x8BC4;&#x5206;)&#x3002;&#x7531;&#x4E8E;&#x89E3;&#x91CA;&#x662F;&#x4EE5;&#x9884;&#x6D4B;&#x7684;&#x6807;&#x7B7E;&#x4E3A;&#x6761;&#x4EF6;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x6A21;&#x578B;&#x9884;&#x6D4B;&#x4E0D;&#x6B63;&#x786E;&#x7684;&#x6807;&#x7B7E;&#x65F6;&#xFF0C;&#x5C31;&#x4E0D;&#x80FD;&#x671F;&#x671B;&#x5B83;&#x751F;&#x6210;&#x6B63;&#x786E;&#x7684;&#x89E3;&#x91CA;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x89E3;&#x91CA;&#x7684;&#x6B63;&#x786E;&#x5EA6;&#x91CF;&#x662F;&#x9884;&#x6D4B;&#x6807;&#x7B7E;&#x6B63;&#x786E;&#x7684;&#x5B50;&#x96C6;&#x4E2D;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x3002;&#x5BF9;&#x4E8E;&#x6D4B;&#x8BD5;&#x96C6;&#x4E2D;&#x7684;&#x524D;100&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x6B63;&#x786E;&#x89E3;&#x91CA;BiLSTM-Max-PredExpl&#x7684;&#x767E;&#x5206;&#x6BD4;&#x53EA;&#x6709;34.68%(&#x5728;&#x6A21;&#x578B;&#x9884;&#x6D4B;&#x6B63;&#x786E;&#x6807;&#x7B7E;&#x7684;80&#x4E2A;&#x5B9E;&#x4F8B;&#x4E2D;)&#x3002;&#x867D;&#x7136;&#x8FD9;&#x4E2A;&#x767E;&#x5206;&#x6BD4;&#x975E;&#x5E38;&#x4F4E;&#xFF0C;&#x4F46;&#x662F;&#x5E94;&#x8BE5;&#x8BB0;&#x4F4F;&#xFF0C;&#x5BF9;&#x4E8E;BiLSTM-Max-PredExpl&#x7684;&#x9009;&#x62E9;&#x6807;&#x51C6;&#x4EC5;&#x4EC5;&#x662F;&#x6807;&#x7B7E;&#x7684;&#x51C6;&#x786E;&#x6027;&#x3002;&#x5728;&#x4E0B;&#x4E00;&#x4E2A;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x6211;&#x5C06;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x5728;&#x9884;&#x6D4B;&#x7684;&#x6807;&#x7B7E;&#x4E5F;&#x662F;&#x6B63;&#x786E;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4EC5;&#x4E3A;&#x751F;&#x6210;&#x89E3;&#x91CA;&#x800C;&#x8FDB;&#x884C;&#x9009;&#x62E9;(&#x548C;&#x8BAD;&#x7EC3;)&#xFF0C;&#x4ECE;&#x800C;&#x83B7;&#x5F97;&#x66F4;&#x9AD8;&#x7684;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x767E;&#x5206;&#x6BD4;&#x3002;</p>
+<h3 id="543-&#x89E3;&#x91CA;&#x540E;&#x9884;&#x6D4B;"><a name="543-&#x89E3;&#x91CA;&#x540E;&#x9884;&#x6D4B;" class="anchor-navigation-ex-anchor" href="#543-&#x89E3;&#x91CA;&#x540E;&#x9884;&#x6D4B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="543-&#x89E3;&#x91CA;&#x540E;&#x9884;&#x6D4B;" class="plugin-anchor" href="#543-&#x89E3;&#x91CA;&#x540E;&#x9884;&#x6D4B;"><i class="fa fa-link" aria-hidden="true"></i></a>5.4.3 &#x89E3;&#x91CA;&#x540E;&#x9884;&#x6D4B;</h3>
+<p>&#x5728;&#x4E4B;&#x524D;&#x7684;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;BiLSTM-Max-PredExpl&#x751F;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;&#x5176;&#x9884;&#x6D4B;&#x6807;&#x7B7E;&#x7684;&#x89E3;&#x91CA;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6A21;&#x578B;&#x53EF;&#x80FD;&#x4E0D;&#x80FD;&#x63D0;&#x4F9B;&#x5FE0;&#x4E8E;&#x6A21;&#x578B;&#x51B3;&#x7B56;&#x8FC7;&#x7A0B;&#x7684;&#x89E3;&#x91CA;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x89E3;&#x91CA;&#x751F;&#x6210;&#x5668;&#x4E0D;&#x80FD;&#x8BBF;&#x95EE;&#x5206;&#x7C7B;&#x5668;&#x7684;&#x5185;&#x90E8;&#x5DE5;&#x4F5C;(&#x53C2;&#x89C1;&#x56FE;5.2)&#x3002;&#x4E3A;&#x4E86;&#x589E;&#x52A0;&#x83B7;&#x5F97;&#x5FE0;&#x5B9E;&#x89E3;&#x91CA;&#x7684;&#x6982;&#x7387;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x6807;&#x7B7E;&#x9884;&#x6D4B;&#x548C;&#x89E3;&#x91CA;&#x751F;&#x6210;&#x7684;&#x987A;&#x5E8F;&#x98A0;&#x5012;&#x8FC7;&#x6765;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#xFF0C;&#x9996;&#x5148;&#x7ED9;&#x51FA;&#x4E00;&#x5BF9;(&#x524D;&#x63D0;&#x3001;&#x5047;&#x8BBE;)&#x6765;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#xFF0C;&#x7136;&#x540E;&#x9884;&#x6D4B;&#x4E00;&#x4E2A;&#x53EA;&#x7ED9;&#x51FA;&#x751F;&#x6210;&#x89E3;&#x91CA;&#x7684;&#x6807;&#x7B7E;&#x3002;&#x6211;&#x5C06;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6A21;&#x578B;&#x79F0;&#x4E3A;BiLSTM-Max-ExplPred&#xFF0C;&#x4E0B;&#x9762;&#x5C06;&#x63D0;&#x4F9B;&#x5B83;&#x7684;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x3002;&#x5BF9;&#x4E8E;e-SNLI&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x5408;&#x7406;&#x7684;&#x5206;&#x89E3;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x4EE5;&#x4E0B;&#x5173;&#x952E;&#x89C2;&#x5BDF;&#x7ED3;&#x679C;:&#x5BF9;&#x4E8E;e-SNLI&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x68C0;&#x6D4B;&#x4E3A;&#x54EA;&#x4E2A;&#x6807;&#x7B7E;&#x63D0;&#x4F9B;&#x4E86;&#x89E3;&#x91CA;&#x3002;&#x8FD9;&#x53EF;&#x80FD;&#x4E0D;&#x662F;&#x4E00;&#x822C;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x56E0;&#x4E3A;&#x540C;&#x6837;&#x7684;&#x89E3;&#x91CA;&#x53EF;&#x4EE5;&#x6B63;&#x786E;&#x5730;&#x8BC1;&#x660E;&#x4E0D;&#x540C;&#x7684;&#x6807;&#x7B7E;&#xFF0C;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x524D;&#x63D0;&#x548C;&#x5047;&#x8BBE;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x201C;A women is a person&#x3002;&#x201C;&#x8FD9;&#x5BF9;&#x4E8E;&#x9690;&#x542B;&#x7684;&#x4E00;&#x5BF9;&#x6765;&#x8BF4;&#x90FD;&#x662F;&#x6B63;&#x786E;&#x7684;&#x89E3;&#x91CA;(&#x201C;A women is in the park&#x201D;&#xFF0C;&#x201C;A person is in the park&#x201D;)&#x548C;&#x77DB;&#x76FE;&#x7EC4;(&#x201C;A women is in the park&#x201D;&#xFF0C;&#x201C;There is no person in the park&#x201D;)&#x3002;&#x7136;&#x800C;&#xFF0C;&#x6709;&#x591A;&#x79CD;&#x89E3;&#x91CA;&#x65B9;&#x5F0F;&#x3002;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x5BF9;&#x4E8E;&#x77DB;&#x76FE;&#x5BF9;&#xFF0C;&#x4E00;&#x4E2A;&#x4EBA;&#x4E5F;&#x53EF;&#x4EE5;&#x89E3;&#x91CA;&#x201C;There cannot be no person in the park if a women is in the park&#x201D;&#xFF0C;&#x5355;&#x72EC;&#x9605;&#x8BFB;&#x5C31;&#x53EF;&#x4EE5;&#x63A8;&#x65AD;&#x51FA;&#x8FD9;&#x4E00;&#x5BF9;&#x662F;&#x77DB;&#x76FE;&#x7684;&#x3002;&#x540E;&#x4E00;&#x79CD;&#x89E3;&#x91CA;&#x5728;e-SNLI&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x5360;&#x4E3B;&#x5BFC;&#x5730;&#x4F4D;&#x3002;</p>
+<p><strong>&#x6A21;&#x578B;&#x3002;</strong>&#x5BF9;&#x4E8E;&#x6A21;&#x578B;BiLSTM-Max-ExplPred&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x6211;&#x63D0;&#x51FA;&#x4E86;&#x4E24;&#x4E2A;&#x67B6;&#x6784;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x9884;&#x6D4B;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x524D;&#x63D0;&#x548C;&#x4E00;&#x4E2A;&#x5047;&#x8BBE;&#x7684;&#x89E3;&#x91CA;&#x3002;&#x9996;&#x5148;&#xFF0C;BiLSTM-Max-ExplPred-Seq2Seq&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5E8F;&#x5217;&#x5230;&#x5E8F;&#x5217;&#x6A21;&#x578B;&#x3002;&#x672C;&#x8D28;&#x4E0A;&#xFF0C;&#x5B83;&#x4E0E;BiLSTM-Max-PredExpl&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;MLP&#x5206;&#x7C7B;&#x5668;(&#x5728;&#x89E3;&#x91CA;&#x4E4B;&#x524D;&#x6CA1;&#x6709;&#x6807;&#x7B7E;)&#x3002;&#x5176;&#x6B21;&#xFF0C;BiLSTM-Max-ExplPred-Att&#x662F;&#x8FD9;&#x4E2A;BiLSTM-Max-ExplPred-Seq2Seq&#x7684;&#x5173;&#x6CE8;&#x7248;&#x3002;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;&#x6CE8;&#x610F;&#x673A;&#x5236;&#x5728;&#x4E0D;&#x540C;&#x9886;&#x57DF;&#x5BF9;&#x975E;&#x6CE8;&#x610F;&#x5BF9;&#x7ACB;&#x90E8;&#x5206;&#x5E26;&#x6765;&#x4E86;&#x6301;&#x7EED;&#x7684;&#x6539;&#x8FDB;&#xFF0C;&#x4F8B;&#x5982;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;(Xu et al.&#xFF0C; 2015)&#x3001;&#x6F14;&#x8BB2;(Chan et al.&#xFF0C; 2016)&#x548C;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x5904;&#x7406;(Gong et al.&#xFF0C; 2018;(Bahdanau&#x7B49;&#xFF0C;2015)&#x3002;&#x7C7B;&#x4F3C;&#x4E8E;BiLSTM-Max-ExplPred-Seq2Seq&#xFF0C;&#x7F16;&#x7801;&#x5668;&#x662F;&#x4E24;&#x4E2A;2048-BiLSTM&#x5355;&#x5143;&#xFF0C;&#x89E3;&#x7801;&#x5668;&#x662F;&#x5355;&#x5C42;LSTM&#x3002;&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x5728;&#x4E8E;&#xFF0C;BiLSTM-Max-ExplPred-Att&#x5728;&#x751F;&#x6210;&#x89E3;&#x91CA;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x72EC;&#x7ACB;&#x4F46;&#x76F8;&#x540C;&#x7684;&#x6CE8;&#x610F;&#x529B;&#x5934;&#x6765;&#x5173;&#x6CE8;&#x6765;&#x81EA;&#x524D;&#x63D0;&#x548C;&#x5047;&#x8BBE;&#x7684;token&#x3002;&#x6700;&#x540E;&#xFF0C;&#x6211;&#x8BAD;&#x7EC3;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;ExplToLbl&#x7684;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#xFF0C;&#x5B83;&#x53EA;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#x5C31;&#x80FD;&#x9884;&#x6D4B;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#x3002;ExplToLbl&#x7531;&#x6700;&#x5927;&#x62C9;&#x7801;&#x7F16;&#x7801;&#x5668;2048-BiLSTM&#x548C;3&#x5C42;MLP&#x5206;&#x7C7B;&#x5668;&#x7EC4;&#x6210;&#xFF0C;&#x6D4B;&#x8BD5;&#x7CBE;&#x5EA6;&#x4E3A;96.83%&#x3002;&#x8FD9;&#x79CD;&#x9AD8;&#x6D4B;&#x8BD5;&#x7CBE;&#x5EA6;&#x8BC1;&#x660E;&#x4E86;&#x5C06;&#x8BE5;&#x6A21;&#x578B;&#x5206;&#x89E3;&#x4E3A;&#x4E24;&#x4E2A;&#x72EC;&#x7ACB;&#x6A21;&#x5757;&#x662F;&#x5408;&#x7406;&#x7684;&#x3002;&#x56FE;5.3&#x5C55;&#x793A;&#x4E86;&#x8BE5;&#x6A21;&#x578B;&#x7684;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x3002;</p>
+<p><img src="../image/5.3.png" alt=""></p>
+<p>&#x56FE;5.3:BiLSTM-Max-ExplPred&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x67B6;&#x6784;&#x3002;&#x6700;&#x4E0A;&#x9762;&#x7684;&#x662F;ExplToLbl&#x6A21;&#x578B;&#xFF0C;&#x5B83;&#x4EC5;&#x6839;&#x636E;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#x6765;&#x9884;&#x6D4B;&#x4E00;&#x4E2A;&#x6807;&#x7B7E;&#x3002;&#x5DE6;&#x8FB9;&#x662F;BiLSTM-Max-ExplPred-Seq2Seq&#x6A21;&#x578B;&#x3002;&#x53F3;&#x8FB9;&#x662F;BiLSTM-Max-ExplPred-Att&#x6A21;&#x578B;&#x3002;</p>
+<p><strong>&#x6A21;&#x578B;&#x9009;&#x62E9;</strong> &#x5728;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x4E2D;&#x552F;&#x4E00;&#x7684;&#x8D85;&#x53C2;&#x6570;&#x662F;&#x89E3;&#x7801;&#x5668;&#x7684;&#x5185;&#x90E8;&#x5C3A;&#x5BF8;&#x3002;&#x6A21;&#x578B;&#x9009;&#x62E9;&#x51C6;&#x5219;&#x662F;&#x5BF9;e-SNLI&#x9A8C;&#x8BC1;&#x96C6;&#x7684;&#x6DF7;&#x4E71;&#x5EA6;&#x3002;&#x5185;&#x90E8;&#x5C3A;&#x5BF8;&#x4E3A;1024&#x65F6;&#xFF0C;&#x5F97;&#x5230;&#x4E86;BiLSTM-Max-ExplPred-Seq2Seq&#x548C;BiLSTM-Max-ExplPred-Att&#x7684;&#x6700;&#x4F73;&#x6DF7;&#x4E71;&#x5EA6;&#x5EA6;&#x3002;</p>
+<p><strong>&#x7ED3;&#x679C;</strong> &#x901A;&#x8FC7;&#x4E0A;&#x8FF0;&#x8BBE;&#x7F6E;&#xFF0C;&#x6807;&#x7B7E;&#x7CBE;&#x5EA6;&#x4ECE;BiLSTM-Max-PredExpl&#x4E2D;&#x7684;83.96%(0.26)&#x4E0B;&#x964D;&#x5230;BiLSTM-Max-ExplPredSeq2Seq&#x4E2D;&#x7684;81.59%(0.45)&#x548C;BiLSTM-Max-ExplPred-Att&#x4E2D;&#x7684;81.71%(0.36)&#x3002;&#x800C;&#x5BF9;&#x6D4B;&#x8BD5;&#x96C6;&#x4E2D;&#x524D;100&#x4E2A;&#x5B9E;&#x4F8B;&#x751F;&#x6210;&#x7684;&#x89E3;&#x91CA;&#x8FDB;&#x884C;&#x624B;&#x5DE5;&#x6CE8;&#x91CA;&#xFF0C;&#x5176;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x6BD4;&#x4F8B;&#x663E;&#x8457;&#x63D0;&#x9AD8;:BiLSTMMax-ExplPred-Seq2Seq&#x4E3A;49.8%&#xFF0C;BiLSTM-Max-ExplPred-Att&#x4E3A;64.27%&#x3002;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x6A21;&#x578B;&#x9009;&#x62E9;&#x53EA;&#x8003;&#x8651;&#x5BF9;&#x751F;&#x6210;&#x89E3;&#x91CA;&#x7684;&#x6DF7;&#x4E71;&#x7A0B;&#x5EA6;&#xFF0C;&#x800C;&#x4F7F;&#x7528;&#x6CE8;&#x610F;&#x673A;&#x5236;&#x53EF;&#x4EE5;&#x663E;&#x8457;&#x63D0;&#x9AD8;&#x89E3;&#x91CA;&#x7684;&#x8D28;&#x91CF;&#x3002;&#x8FD9;&#x4E2A;&#x5B9E;&#x9A8C;&#x8868;&#x660E;&#xFF0C;&#x5C3D;&#x7BA1;&#x6807;&#x7B7E;&#x7684;&#x51C6;&#x786E;&#x6027;&#x7565;&#x6709;&#x4E0B;&#x964D;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x6A21;&#x578B;&#x9884;&#x6D4B;&#x6B63;&#x786E;&#x6807;&#x7B7E;&#x7684;&#x5B9E;&#x4F8B;&#x6240;&#x4EA7;&#x751F;&#x89E3;&#x91CA;&#x7684;&#x6B63;&#x786E;&#x6027;&#x3002;</p>
+<p>&#x200B;        &#x8868;5.1&#x603B;&#x7ED3;&#x4E86;&#x6240;&#x6709;&#x6A21;&#x578B;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x8868;5.1:BiLSTM-Max- predexpl&#x3001;BiLSTM-MaxExplPred&#x548C;BiLSTM-Max&#x57FA;&#x7EBF;&#x7684;&#x6027;&#x80FD;&#x3002;&#x5E73;&#x5747;&#x503C;&#x8D85;&#x8FC7;5&#x4E2A;&#x79CD;&#x5B50;&#xFF0C;&#x6807;&#x51C6;&#x5DEE;&#x5728;&#x62EC;&#x53F7;&#x5185;&#x3002;Expl@100&#x662F;&#x5728;e-SNLI&#x6D4B;&#x8BD5;&#x96C6;&#x7684;&#x524D;100&#x4E2A;&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x6A21;&#x578B;&#x9884;&#x6D4B;&#x5230;&#x6B63;&#x786E;&#x6807;&#x7B7E;&#x7684;&#x5B9E;&#x4F8B;&#x5B50;&#x96C6;&#x4E2D;&#xFF0C;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x3002;&#x89E3;&#x91CA;&#x7684;&#x6B63;&#x786E;&#x6027;&#x662F;&#x901A;&#x8FC7;&#x4EBA;&#x5DE5;&#x6CE8;&#x91CA;&#x83B7;&#x5F97;&#x7684;&#x3002;&#x7C97;&#x4F53;&#x662F;&#x6700;&#x597D;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<p><img src="../image/5.4.png" alt=""></p>
+<p><strong>&#x5B9A;&#x6027;&#x5206;&#x6790;&#x3002;</strong>&#x5728;&#x8868;5.2&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;(a) BiLSTM-Max-PredExpl&#xFF0C; (b) BiLSTM-Max-ExplPred-Seq2Seq&#x548C;(c) BiLSTM-Max-ExplPred-Att&#x4EA7;&#x751F;&#x7684;&#x89E3;&#x91CA;&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x5728;&#x6BCF;&#x4E2A;&#x89E3;&#x91CA;&#x7684;&#x7ED3;&#x5C3E;&#xFF0C;&#x62EC;&#x53F7;&#x4E2D;&#x662F;&#x6211;&#x624B;&#x52A8;&#x5206;&#x914D;&#x7684;&#x5206;&#x6570;&#xFF0C;&#x5982;5.3&#x8282;&#x6240;&#x8FF0;&#x3002;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x4E09;&#x79CD;&#x6A21;&#x578B;&#x7684;&#x89E3;&#x91CA;&#x4E3B;&#x8981;&#x662F;&#x5173;&#x4E8E;&#x4E3B;&#x9898;&#x7684;&#xFF0C;&#x53EA;&#x6709;&#x5C11;&#x6570;&#x4F8B;&#x5916;&#xFF0C;&#x6BD4;&#x5982;(1c)&#x4E2D;&#x63D0;&#x5230;&#x7684;&#x201C;&#x4F2A;&#x88C5;&#x201D;&#x3002;&#x8FD8;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x9519;&#x8BEF;&#x7684;&#xFF0C;&#x4EA7;&#x751F;&#x7684;&#x89E3;&#x91CA;&#x6709;&#x65F6;&#x4E5F;&#x4F1A;&#x4EE4;&#x4EBA;&#x6CAE;&#x4E27;&#x5730;&#x63A5;&#x8FD1;&#x6B63;&#x786E;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728;20&#x4E2A;&#x5355;&#x8BCD;&#x4E2D;&#xFF0C;&#x89E3;&#x91CA;(2b)&#x53EA;&#x5DEE;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x5C31;&#x5BF9;&#x4E86;&#x3002;</p>
+<p>&#x200B;        &#x5F53;&#x9884;&#x6D4B;&#x7684;&#x6807;&#x7B7E;&#x4E0D;&#x6B63;&#x786E;&#x65F6;&#xFF0C;&#x68C0;&#x67E5;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x89E3;&#x91CA;&#x4E5F;&#x662F;&#x6709;&#x8DA3;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728;(1a)&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x7F51;&#x7EDC;&#x4ECE;&#x524D;&#x63D0;&#x4E2D;&#x7701;&#x7565;&#x4E86;&#x201C;&#x9762;&#x5BF9;&#x6444;&#x50CF;&#x673A;&#x201D;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x56E0;&#x6B64;&#x5C06;&#x8FD9;&#x5BF9;&#x7EC4;&#x5408;&#x5F52;&#x7C7B;&#x4E3A;&#x4E2D;&#x6027;&#x7684;&#xFF0C;&#x8FD9;&#x662F;&#x7531;&#x5176;&#x672C;&#x8EAB;&#x5728;&#x5176;&#x4ED6;&#x65B9;&#x9762;&#x6B63;&#x786E;&#x7684;&#x89E3;&#x91CA;&#x6240;&#x652F;&#x6301;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x8FD8;&#x770B;&#x5230;model BiLSTM-Max-ExplPred-Seq2Seq&#x6B63;&#x786E;&#x5730;&#x5C06;&#x8FD9;&#x4E00;&#x5BF9;&#x5206;&#x7C7B;&#x4E3A;entailment&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5B83;&#x53EA;&#x751F;&#x6210;&#x4E86;&#x5BFC;&#x81F4;&#x9690;&#x542B;&#x6027;&#x7684;&#x4E09;&#x4E2A;&#x5FC5;&#x8981;&#x8BBA;&#x636E;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#xFF0C;&#x800C;&#x4E14;&#x5B83;&#x8FD8;&#x6311;&#x9009;&#x4E86;&#x53EF;&#x80FD;&#x6700;&#x7B80;&#x5355;&#x7684;&#x8BBA;&#x636E;&#x3002;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x6CE8;&#x610F;&#x529B;&#x6A21;&#x578B;&#x8BA4;&#x4E3A;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;(1c)&#x662F;&#x4E2D;&#x6027;&#x7684;&#xFF0C;&#x5E76;&#x8BA4;&#x4E3A;&#x201C;&#x7AD9;&#x7740;&#x201D;&#x548C;&#x201C;&#x9762;&#x5BF9;&#x76F8;&#x673A;&#x201D;&#x5E76;&#x4E0D;&#x8DB3;&#x4EE5;&#x5F97;&#x51FA;&#x201C;&#x6446;&#x59FF;&#x52BF;&#x62CD;&#x7167;&#x201D;&#x7684;&#x7ED3;&#x8BBA;&#xFF0C;&#x800C;&#x4EBA;&#x7C7B;&#x5219;&#x8BA4;&#x4E3A;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x662F;&#x542B;&#x84C4;&#x7684;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x8FD9;&#x4E9B;&#x89E3;&#x91CA;&#x4E5F;&#x63D0;&#x5230;&#x4E86;&#x201C;&#x4F2A;&#x88C5;&#x201D;&#xFF0C;&#x8FD9;&#x548C;&#x8FDE;&#x5E3D;&#x886B;&#x4E0D;&#x4E00;&#x5B9A;&#x4E00;&#x6837;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x5C06;&#x6B64;&#x89E3;&#x91CA;&#x6807;&#x6CE8;&#x4E3A;&#x4E0D;&#x6B63;&#x786E;(&#x62EC;&#x53F7;&#x4E2D;&#x4E3A;0&#x5206;)&#x3002;</p>
+<p>&#x8868;5.2:&#x4ECE;(a) BiLSTMMax-PredExpl&#xFF0C; (b) BiLSTM-Max-ExplPred-Seq2Seq&#x548C;(c) BiLSTMMax-ExplPred-Att&#x4E2D;&#x9884;&#x6D4B;&#x6807;&#x7B7E;&#x548C;&#x751F;&#x6210;&#x89E3;&#x91CA;&#x7684;&#x4F8B;&#x5B50;&#x3002;&#x62EC;&#x53F7;&#x4E2D;&#x662F;&#x6B63;&#x786E;&#x6027;&#x5F97;&#x5206;&#xFF0C;&#x90E8;&#x5206;&#x5F97;&#x5206;&#x5982;5.3&#x8282;&#x6240;&#x8FF0;&#x3002;</p>
+<p><img src="../image/5.5.png" alt=""></p>
+<p>&#x867D;&#x7136;&#x8FD8;&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;&#x7814;&#x7A76;&#x6765;&#x4E86;&#x89E3;&#x4EA7;&#x751F;&#x7684;&#x89E3;&#x91CA;&#x662F;&#x5426;&#x4E3A;&#x6A21;&#x578B;&#x7684;&#x51B3;&#x7B56;&#x8FC7;&#x7A0B;&#x63D0;&#x4F9B;&#x4E86;&#x53EF;&#x9760;&#x7684;&#x7EBF;&#x7D22;&#xFF0C;&#x4F46;&#x4EE4;&#x4EBA;&#x6B23;&#x6170;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E9B;&#x89E3;&#x91CA;&#x662F;&#x53EF;&#x4FE1;&#x7684;&#x3002;</p>
+<h3 id="544-&#x901A;&#x7528;&#x7684;&#x53E5;&#x5B50;&#x8868;&#x793A;"><a name="544-&#x901A;&#x7528;&#x7684;&#x53E5;&#x5B50;&#x8868;&#x793A;" class="anchor-navigation-ex-anchor" href="#544-&#x901A;&#x7528;&#x7684;&#x53E5;&#x5B50;&#x8868;&#x793A;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="544-&#x901A;&#x7528;&#x7684;&#x53E5;&#x5B50;&#x8868;&#x793A;" class="plugin-anchor" href="#544-&#x901A;&#x7528;&#x7684;&#x53E5;&#x5B50;&#x8868;&#x793A;"><i class="fa fa-link" aria-hidden="true"></i></a>5.4.4 &#x901A;&#x7528;&#x7684;&#x53E5;&#x5B50;&#x8868;&#x793A;</h3>
+<p>&#x83B7;&#x53D6;&#x901A;&#x7528;&#x53E5;&#x5B50;&#x8868;&#x793A;&#x662F;&#x8BAD;&#x7EC3;&#x7F16;&#x7801;&#x5668;&#x63D0;&#x4F9B;&#x77ED;&#x8BED;/&#x53E5;&#x5B50;&#x8BED;&#x4E49;&#x4E0A;&#x6709;&#x610F;&#x4E49;&#x7684;&#x5B9A;&#x957F;&#x8868;&#x793A;&#x7684;&#x4EFB;&#x52A1;(Kiros et al.&#xFF0C; 2015;Hill&#x7B49;&#x4EBA;&#xFF0C;2016&#x5E74;;Conneau&#x7B49;&#xFF0C;2017)&#x3002;&#x8FD9;&#x4E9B;&#x8868;&#x793A;&#x5728;&#x5176;&#x4ED6;&#x4E0B;&#x6E38;&#x4EFB;&#x52A1;&#x4E2D;&#x8FDB;&#x4E00;&#x6B65;&#x4F5C;&#x4E3A;&#x7279;&#x5F81;&#x4F7F;&#x7528;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5728;&#x7F3A;&#x5C11;&#x6807;&#x8BB0;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x7684;&#x4EFB;&#x52A1;&#x4E2D;&#x3002;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x4E2D;&#xFF0C;&#x9884;&#x5148;&#x8BAD;&#x7EC3;&#x7684;&#x57FA;&#x4E8E;imagenet&#x7684;&#x7F16;&#x7801;&#x5668;&#x4E3A;&#x5176;&#x4ED6;&#x4E0B;&#x6E38;&#x4EFB;&#x52A1;&#x63D0;&#x4F9B;&#x6807;&#x51C6;&#x7684;&#x56FE;&#x50CF;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x5668;(Deng et al.&#xFF0C; 2009)&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5728;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x5904;&#x7406;&#x4E2D;&#xFF0C;&#x5BF9;&#x4E8E;&#x901A;&#x7528;&#x7684;&#x53E5;&#x5B50;&#x7F16;&#x7801;&#x5668;&#x4ECD;&#x7136;&#x6CA1;&#x6709;&#x5171;&#x8BC6;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x653E;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x54EA;&#x4E2A;&#x4EFB;&#x52A1;&#x548C;&#x6570;&#x636E;&#x96C6;&#x5E94;&#x8BE5;&#x8BAD;&#x7EC3;&#x8FD9;&#x6837;&#x7684;&#x7F16;&#x7801;&#x5668;&#x3002;&#x4F20;&#x7EDF;&#x65B9;&#x6CD5;&#x5229;&#x7528;74&#x4E2A;&#x975E;&#x5E38;&#x5927;&#x7684;&#x65E0;&#x76D1;&#x7763;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x9700;&#x8981;&#x6570;&#x5468;&#x7684;&#x8BAD;&#x7EC3;(Kiros et al.&#xFF0C; 2015)&#x3002;&#x6700;&#x8FD1;&#xFF0C;Conneau&#x7B49;&#x4EBA;(2017)&#x8868;&#x660E;&#xFF0C;&#x4EC5;&#x5BF9;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x63A8;&#x7406;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#xFF0C;&#x6BD4;&#x5BF9;&#x6570;&#x91CF;&#x7EA7;&#x8F83;&#x5927;&#x4F46;&#x65E0;&#x76D1;&#x7763;&#x6570;&#x636E;&#x96C6;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x66F4;&#x51C6;&#x786E;&#x3001;&#x66F4;&#x7701;&#x65F6;&#x3002;&#x4ED6;&#x4EEC;&#x7684;&#x7ED3;&#x679C;&#x9F13;&#x52B1;&#x4E86;&#x8FD9;&#x6837;&#x4E00;&#x79CD;&#x60F3;&#x6CD5;&#xFF0C;&#x5373;&#x66F4;&#x591A;&#x7684;&#x76D1;&#x7763;&#x53EF;&#x80FD;&#x6BD4;&#x66F4;&#x5927;&#x4F46;&#x6CA1;&#x6709;&#x76D1;&#x7763;&#x7684;&#x6570;&#x636E;&#x96C6;&#x66F4;&#x6709;&#x76CA;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x7814;&#x7A76;&#x4EE5;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x5F62;&#x5F0F;&#x589E;&#x52A0;&#x4E00;&#x5C42;&#x76D1;&#x7763;&#x662F;&#x5426;&#x80FD;&#x8FDB;&#x4E00;&#x6B65;&#x63D0;&#x9AD8;&#x666E;&#x904D;&#x53E5;&#x5B50;&#x8868;&#x5F81;&#x7684;&#x5B66;&#x4E60;&#x662F;&#x5F88;&#x6709;&#x610F;&#x4E49;&#x7684;&#x3002;</p>
+<p><strong>&#x6A21;&#x578B;</strong> &#x6211;&#x4F7F;&#x7528;5.4.2&#x8282;&#x4E2D;&#x8BAD;&#x7EC3;&#x8FC7;&#x7684;BiLSTM-Max-PredExpl&#x6A21;&#x578B;&#x3002;&#x4E3A;&#x4E86;&#x786E;&#x4FDD;BiLSTM-Max- predexpl&#x6BD4;BiLSTM-Max&#x7684;&#x6F5C;&#x5728;&#x6539;&#x8FDB;&#x6765;&#x81EA;&#x4E8E;&#x89E3;&#x91CA;&#xFF0C;&#x800C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x6DFB;&#x52A0;&#x4E86;&#x8BED;&#x8A00;&#x89E3;&#x7801;&#x5668;&#xFF0C;&#x6211;&#x5C06;&#x4ECB;&#x7ECD;BiLSTM-Max- autoenc&#x6A21;&#x578B;&#x4F5C;&#x4E3A;&#x989D;&#x5916;&#x7684;&#x57FA;&#x7EBF;&#x3002;BiLSTMMax-AutoEnc&#x9075;&#x5FAA;&#x4E0E;BiLSTM-Max-PredExpl&#x76F8;&#x540C;&#x7684;&#x67B6;&#x6784;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x89E3;&#x7801;&#x89E3;&#x91CA;&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x7684;LSTM&#x89E3;&#x7801;&#x5668;&#x4ECE;&#x5B83;&#x4EEC;&#x5BF9;&#x5E94;&#x7684;&#x5411;&#x91CF;&#x8868;&#x793A;&#x4E2D;&#x89E3;&#x7801;&#x524D;&#x63D0;&#x548C;&#x5047;&#x8BBE;&#x3002;&#x5BF9;&#x4E8E;BiLSTMMax-AutoEnc&#xFF0C;&#x6211;&#x4F7F;&#x7528;&#x4E0E;BiLSTM-Max-PredExpl&#x76F8;&#x540C;&#x7684;hypeparameters&#x3002;</p>
+<p><strong>&#x8BC4;&#x4EF7;&#x6307;&#x6807;</strong> &#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53E5;&#x5B50;&#x8868;&#x793A;&#x6CD5;&#x662F;&#x901A;&#x8FC7;&#x5C06;&#x5B83;&#x4EEC;&#x4F5C;&#x4E3A;&#x56FA;&#x5B9A;&#x7684;&#x7279;&#x5F81;&#x6765;&#x8BC4;&#x4F30;&#x7684;&#xFF0C;&#x6D45;&#x5C42;&#x5206;&#x7C7B;&#x5668;&#x5728;&#x6B64;&#x57FA;&#x7840;&#x4E0A;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#xFF0C;&#x4EE5;&#x6267;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x4E0B;&#x6E38;&#x4EFB;&#x52A1;&#x3002;Conneau&#x7B49;&#x4EBA;(2017)&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x4F18;&#x79C0;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E;&#x8BC4;&#x4F30;10&#x79CD;&#x4E0D;&#x540C;&#x4EFB;&#x52A1;&#x7684;&#x53E5;&#x5B50;&#x8868;&#x5F81;:&#x7535;&#x5F71;&#x8BC4;&#x8BBA;(MR)&#x3001;&#x4EA7;&#x54C1;&#x8BC4;&#x8BBA;(CR)&#x3001;&#x4E3B;&#x89C2;&#x6027;/&#x5BA2;&#x89C2;&#x6027;(SUBJ)&#x3001;&#x610F;&#x89C1;&#x6781;&#x6027;(MPQA)&#x3001;&#x95EE;&#x9898;&#x7C7B;&#x578B;(TREC)&#x3001;&#x60C5;&#x7EEA;&#x5206;&#x6790;(SST)&#x3001;&#x8BED;&#x4E49;&#x6587;&#x672C;&#x76F8;&#x4F3C;&#x6027;(STS)&#x3001;&#x91CA;&#x4E49;&#x68C0;&#x6D4B;(MRPC)&#x3001;&#x9690;&#x542B;(sicke)&#x548C;&#x8BED;&#x4E49;&#x76F8;&#x5173;&#x6027;(sickr)&#x3002;MRPC&#x7528;accuracy/ f1&#x8BC4;&#x5206;&#x8FDB;&#x884C;&#x8BC4;&#x4F30;&#x3002;&#x7528;Pearson/Spearman&#x76F8;&#x5173;&#x6027;&#x8BC4;&#x4F30;STS14&#x3002;&#x7528;&#x76AE;&#x5C14;&#x900A;&#x76F8;&#x5173;&#x6765;&#x8BC4;&#x4F30;SICK-R&#x3002;&#x5BF9;&#x4E8E;&#x6240;&#x6709;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#xFF0C;&#x7CBE;&#x786E;&#x6027;&#x7528;&#x4E8E;&#x6027;&#x80FD;&#x8BC4;&#x4F30;&#x3002;&#x8FD9;&#x4E9B;&#x4EFB;&#x52A1;&#x548C;&#x8BC4;&#x4F30;&#x5DE5;&#x5177;&#x7684;&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;&#x53EF;&#x4EE5;&#x5728;&#x4ED6;&#x4EEC;&#x7684;&#x8BBA;&#x6587;&#x4E2D;&#x627E;&#x5230;&#x3002;</p>
+<p>&#x8868;5.3:BiLSTM-Max-PredExpl&#x4EE5;&#x53CA;&#x57FA;&#x7EBF;BiLSTMMax&#x548C;BiLSTM-Max-AutoEnc&#x5728;10&#x4E2A;&#x4E0B;&#x6E38;&#x4EFB;&#x52A1;&#x4E0A;&#x7684;&#x6027;&#x80FD;&#x3002;&#x7ED3;&#x679C;&#x662F;5&#x6B21;&#x4E0D;&#x540C;&#x79CD;&#x5B50;&#x8FD0;&#x884C;&#x7684;&#x5E73;&#x5747;&#x503C;&#xFF0C;&#x6807;&#x51C6;&#x5DEE;&#x5728;&#x62EC;&#x53F7;&#x4E2D;&#x663E;&#x793A;&#x3002;&#x6BCF;&#x4E2A;&#x4EFB;&#x52A1;&#x7684;&#x6700;&#x4F73;&#x7ED3;&#x679C;&#x7528;&#x7C97;&#x4F53;&#x8868;&#x793A;&#x3002;&apos; * &apos;&#x8868;&#x793A;&#x4E0E;&#x57FA;&#x7EBF;&#x76F8;&#x6BD4;&#xFF0C;&#x5728;0.05&#x6C34;&#x5E73;&#x4E0A;&#x5B58;&#x5728;&#x663E;&#x8457;&#x5DEE;&#x5F02;&#x3002;</p>
+<p><img src="../image/5.6.png" alt=""></p>
+<p><strong>&#x7ED3;&#x679C;</strong>  &#x8868;5.3&#x663E;&#x793A;&#x4E86;BiLSTM-Max- predexpl&#x3001;BiLSTM-Max&#x548C;BiLSTM-Max- autoenc&#x5BF9;&#x4E0A;&#x8FF0;10&#x4E2A;&#x4E0B;&#x6E38;&#x4EFB;&#x52A1;&#x7684;&#x7ED3;&#x679C;(&#x5E73;&#x5747;&#x503C;&#x8D85;&#x8FC7;5&#x4E2A;&#x7528;&#x4E0D;&#x540C;&#x79CD;&#x5B50;&#x8BAD;&#x7EC3;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x6807;&#x51C6;&#x5DEE;&#x5728;&#x62EC;&#x53F7;&#x5185;)&#x3002;&#x4E3A;&#x4E86;&#x68C0;&#x9A8C;BiLSTM-MaxAutoEnc&#x548C;BiLSTM-Max- predexpl&#x4E0E;BiLSTM-Max&#x57FA;&#x7EBF;&#x4E4B;&#x95F4;&#x7684;&#x6027;&#x80FD;&#x5DEE;&#x5F02;&#x662F;&#x5426;&#x663E;&#x8457;&#xFF0C;&#x6211;&#x8FDB;&#x884C;&#x4E86;Welch &apos;s t&#x68C0;&#x9A8C;&#x3002;5&#x5728;0.05&#x663E;&#x8457;&#x6027;&#x6C34;&#x5E73;&#x4E0B;&#x663E;&#x7740;&#x7684;&#x7ED3;&#x679C;&#x7528;&#x201C;*&#x201D;&#x8868;&#x793A;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x770B;&#x5230;&#xFF0C;&#x5728;6&#x4E2A;&#x4EFB;&#x52A1;&#x4E0A;&#xFF0C;BiLSTM-Max-AutoEnc&#x7684;&#x6027;&#x80FD;&#x663E;&#x8457;&#x4F4E;&#x4E8E;BiLSTMMax&#xFF0C;&#x800C;&#x5728;&#x4E24;&#x4E2A;&#x4EFB;&#x52A1;&#x4E0A;&#x663E;&#x8457;&#x4F18;&#x4E8E;&#x5B83;&#x3002;&#x8FD9;&#x8868;&#x660E;&#x6DFB;&#x52A0;&#x8BED;&#x8A00;&#x751F;&#x6210;&#x5668;&#x5B9E;&#x9645;&#x4E0A;&#x4F1A;&#x635F;&#x5BB3;&#x6027;&#x80FD;&#x3002;&#x76F8;&#x53CD;&#xFF0C;BiLSTMMax-PredExpl&#x5728;&#x56DB;&#x4E2A;&#x4EFB;&#x52A1;&#x4E0A;&#x663E;&#x8457;&#x4F18;&#x4E8E;BiLSTM-Max&#xFF0C;&#x800C;&#x5728;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x4E0A;&#x663E;&#x8457;&#x4F18;&#x4E8E;&#x5B83;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x51FA;&#x7ED3;&#x8BBA;&#xFF0C;&#x89E3;&#x91CA;&#x8BAD;&#x7EC3;&#x6709;&#x52A9;&#x4E8E;&#x6A21;&#x578B;&#x5B66;&#x4E60;&#x6574;&#x4F53;&#x66F4;&#x597D;&#x7684;&#x53E5;&#x5B50;&#x8868;&#x5F81;&#x3002;</p>
+<h3 id="545-&#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6027;&#x80FD;"><a name="545-&#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6027;&#x80FD;" class="anchor-navigation-ex-anchor" href="#545-&#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6027;&#x80FD;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="545-&#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6027;&#x80FD;" class="plugin-anchor" href="#545-&#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6027;&#x80FD;"><i class="fa fa-link" aria-hidden="true"></i></a>5.4.5 &#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x7684;&#x6027;&#x80FD;</h3>
+<p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5206;&#x5E03;&#x4E0A;&#x8BAD;&#x7EC3;&#x7684;&#x6A21;&#x578B;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5206;&#x5E03;&#x4E0A;&#x7684;&#x6027;&#x80FD;&#x5E76;&#x4E0D;&#x597D;&#x3002;&#x4F8B;&#x5982;&#xFF0C;Bowman&#x7B49;&#x4EBA;(2015)&#x5728;&#x5BF9;SNLI&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x5E76;&#x5BF9;&#x5176;&#x8FDB;&#x884C;disease - e&#x8BC4;&#x4F30;&#x65F6;&#x4EC5;&#x83B7;&#x5F97;&#x4E86;46.7%&#x7684;&#x51C6;&#x786E;&#x6027;(Marelli et al.&#xFF0C; 2014)&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x7814;&#x7A76;&#x89E3;&#x91CA;&#x662F;&#x5426;&#x80FD;&#x5E2E;&#x52A9;&#x6A21;&#x578B;&#x5728;&#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x63D0;&#x9AD8;&#x5176;&#x5728;&#x6807;&#x7B7E;&#x9884;&#x6D4B;&#x548C;&#x89E3;&#x91CA;&#x751F;&#x6210;&#x65B9;&#x9762;&#x7684;&#x6027;&#x80FD;&#x662F;&#x5F88;&#x6709;&#x8DA3;&#x7684;&#x3002;&#x6211;&#x4F7F;&#x7528;&#x4E86;SICK-E&#x6570;&#x636E;&#x96C6;&#x4EE5;&#x53CA;MultiNLI&#x6570;&#x636E;&#x96C6;&#x3002;</p>
+<p><strong>&#x6A21;&#x578B;</strong>  &#x6211;&#x4F7F;&#x7528;5.4.2&#x8282;&#x4E2D;&#x8BAD;&#x7EC3;&#x8FC7;&#x7684;BiLSTM-Max-PredExpl&#x6A21;&#x578B;&#x3002;&#x4F5C;&#x4E3A;&#x57FA;&#x7EBF;&#xFF0C;&#x6211;&#x518D;&#x6B21;&#x4F7F;&#x7528;&#x5DF2;&#x7ECF;&#x8BAD;&#x7EC3;&#x597D;&#x7684;BiLSTM-Max&#x548C;BiLSTM-MaxAutoEnc&#x6A21;&#x578B;&#x3002;</p>
+<p><strong>&#x7ED3;&#x679C;</strong>  &#x8868;5.4&#x663E;&#x793A;&#x4E86;&#x5728;&#x4E0D;&#x5BF9;SICKE&#x548C;&#x591A;&#x9879;&#x8FDB;&#x884C;&#x5FAE;&#x8C03;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5BF9;BiLSTM-Max-PredExpl&#x3001;BiLSTMMax&#x548C;BiLSTM-Max-AutoEnc&#x8FDB;&#x884C;&#x8BC4;&#x4F30;&#x65F6;&#x7684;&#x6027;&#x80FD;&#x3002;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x4F7F;&#x7528;BiLSTM-MaxPredExpl&#x83B7;&#x5F97;&#x7684;&#x6539;&#x8FDB;&#x975E;&#x5E38;&#x5C0F;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x5F97;&#x51FA;&#x7ED3;&#x8BBA;&#x7684;&#x6709;&#x6548;&#x6027;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x4EE5;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#x7684;&#x6A21;&#x578B;&#x7684;&#x9886;&#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x3002;</p>
+<p>&#x200B;        &#x4E3A;&#x4E86;&#x8BC4;&#x4F30;BiLSTM-Max-PredExpl&#x751F;&#x6210;&#x6B63;&#x786E;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x6211;&#x624B;&#x5DE5;&#x6CE8;&#x91CA;&#x4E86;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x4E3A;test set&#x4E2D;&#x7684;&#x524D;100&#x4E2A;&#x5B9E;&#x4F8B;&#x751F;&#x6210;&#x7684;&#x89E3;&#x91CA;&#x3002;&#x6807;&#x7B7E;&#x88AB;&#x6B63;&#x786E;&#x9884;&#x6D4B;&#x7684;&#x5B50;&#x96C6;&#x4E2D;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x4E3A;30.64%&#xFF0C;&#x800C;&#x5BF9;&#x591A;&#x9879;&#x7684;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x53EA;&#x6709;1.92%&#x3002;&#x5728;&#x6CE8;&#x91CA;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6211;&#x6CE8;&#x610F;&#x5230;&#x5728;SICK-E&#x4E2D;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x9519;&#x8BEF;&#x7684;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x5207;&#x9898;&#x7684;&#x3001;&#x6709;&#x6548;&#x7684;&#x9648;&#x8FF0;&#xFF0C;&#x800C;&#x5728;&#x591A;&#x9879;&#x4E2D;&#x7684;&#x89E3;&#x91CA;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x65E0;&#x610F;&#x4E49;&#x7684;&#x6216;&#x79BB;&#x9898;&#x7684;&#x3002;&#x8FD9;&#x5E76;&#x4E0D;&#x5947;&#x602A;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0E;&#x591A;&#x9879;&#x76F8;&#x6BD4;&#xFF0C;SICK-E&#x4E0D;&#x90A3;&#x4E48;&#x590D;&#x6742;&#xFF0C;&#x66F4;&#x7C7B;&#x4F3C;&#x4E8E;SNLI&#x3002;</p>
+<h2 id="&#x7ED3;&#x8BBA;&#x548C;&#x5F00;&#x653E;&#x6027;&#x95EE;&#x9898;"><a name="&#x7ED3;&#x8BBA;&#x548C;&#x5F00;&#x653E;&#x6027;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x7ED3;&#x8BBA;&#x548C;&#x5F00;&#x653E;&#x6027;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7ED3;&#x8BBA;&#x548C;&#x5F00;&#x653E;&#x6027;&#x95EE;&#x9898;" class="plugin-anchor" href="#&#x7ED3;&#x8BBA;&#x548C;&#x5F00;&#x653E;&#x6027;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7ED3;&#x8BBA;&#x548C;&#x5F00;&#x653E;&#x6027;&#x95EE;&#x9898;</h2>
+<p>&#x5728;&#x672C;&#x7AE0;&#x4E2D;&#xFF0C;&#x6211;&#x4ECB;&#x7ECD;&#x4E86;e-SNLI&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5DE8;&#x5927;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x5305;&#x542B;~ 570K&#x4EBA;&#x7C7B;&#x7F16;&#x5199;&#x7684;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#xFF0C;&#x7528;&#x4E8E;&#x6709;&#x5F71;&#x54CD;&#x529B;&#x7684;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x63A8;&#x7406;&#x4EFB;&#x52A1;&#x3002;&#x6211;&#x8BF4;&#x8FC7;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x6765;&#x8BF4;&#xFF0C;&#x57FA;&#x4E8E;SNLI&#x4E2D;&#x865A;&#x5047;&#x7684;&#x76F8;&#x5173;&#x4EA7;&#x751F;&#x6B63;&#x786E;&#x7684;&#x6807;&#x7B7E;&#xFF0C;&#x8981;&#x57FA;&#x4E8E;&#x8FD9;&#x4E9B;&#x76F8;&#x5173;&#x4EA7;&#x751F;&#x6B63;&#x786E;&#x7684;&#x89E3;&#x91CA;&#x662F;&#x975E;&#x5E38;&#x56F0;&#x96BE;&#x7684;&#x3002;&#x8FD9;&#x5E26;&#x6765;&#x4E86;&#x7ECF;&#x9A8C;&#x8BC1;&#x636E;&#xFF0C;&#x8BC1;&#x660E;&#x4EA7;&#x751F;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x6A21;&#x578B;&#x6BD4;&#x53EA;&#x9884;&#x6D4B;&#x6B63;&#x786E;&#x6807;&#x7B7E;&#x7684;&#x6A21;&#x578B;&#x66F4;&#x53EF;&#x9760;&#x3002;</p>
+<p>&#x200B;        &#x6211;&#x5B9E;&#x73B0;&#x4E86;&#x5404;&#x79CD;&#x6A21;&#x578B;&#xFF0C;&#x4E3A;&#x5B83;&#x4EEC;&#x7684;&#x6807;&#x7B7E;&#x9884;&#x6D4B;&#x751F;&#x6210;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#xFF0C;&#x5E76;&#x91CF;&#x5316;&#x4E86;&#x8FD9;&#x4E9B;&#x6A21;&#x578B;&#x5728;&#x9884;&#x6D4B;&#x6B63;&#x786E;&#x7684;&#x6807;&#x7B7E;&#x65F6;&#x751F;&#x6210;&#x6B63;&#x786E;&#x89E3;&#x91CA;&#x7684;&#x80FD;&#x529B;&#x3002;&#x6211;&#x8FD8;&#x7814;&#x7A76;&#x4E86;&#x5728;&#x8BAD;&#x7EC3;&#x65F6;&#x95F4;&#x63D0;&#x4F9B;&#x8FD9;&#x4E9B;&#x89E3;&#x91CA;&#x7684;&#x6709;&#x7528;&#x6027;&#xFF0C;&#x4EE5;&#x83B7;&#x5F97;&#x66F4;&#x597D;&#x7684;&#x901A;&#x7528;&#x8BED;&#x53E5;&#x8868;&#x793A;&#xFF0C;&#x5E76;&#x63D0;&#x9AD8;&#x4E86;&#x5728;&#x57DF;&#x5916;&#x6570;&#x636E;&#x96C6;&#x4E0A;&#x7684;&#x6A21;&#x578B;&#x7684;&#x6027;&#x80FD;&#x3002;</p>
+<p>&#x200B;        &#x56E0;&#x6B64;&#xFF0C;&#x672C;&#x7AE0;&#x6240;&#x63CF;&#x8FF0;&#x7684;&#x5DE5;&#x4F5C;&#x4E3A;&#x672A;&#x6765;&#x53D1;&#x5C55;&#x9C81;&#x68D2;&#x795E;&#x7ECF;&#x6A21;&#x578B;&#x94FA;&#x5E73;&#x4E86;&#x9053;&#x8DEF;&#xFF0C;&#x8BE5;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x5728;&#x8BAD;&#x7EC3;&#x65F6;&#x4ECE;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x4E2D;&#x5B66;&#x4E60;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x6D4B;&#x8BD5;&#x65F6;&#x751F;&#x6210;&#x6B63;&#x786E;&#x7684;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x3002;&#x6B64;&#x5916;&#xFF0C;e-SNLI&#x6570;&#x636E;&#x96C6;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5176;&#x4ED6;&#x76EE;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x4E0E;Das&#x7B49;&#x4EBA;(2016)&#x5BF9;&#x53EF;&#x89C6;&#x5316;&#x95EE;&#x9898;&#x56DE;&#x7B54;&#x7684;&#x8BC4;&#x4F30;&#x76F8;&#x4F3C;&#xFF0C;e-SNLI&#x4E2D;&#x7A81;&#x51FA;&#x663E;&#x793A;&#x7684;&#x6807;&#x8BB0;&#x53EF;&#x80FD;&#x4E3A;&#x6CE8;&#x610F;&#x529B;&#x6A21;&#x578B;&#x63D0;&#x4F9B;&#x76D1;&#x7763;&#x548C;&#x8BC4;&#x4F30;&#x6765;&#x6E90;(Rockt&#xA8;aschel&#x7B49;&#xFF0C;2015;Parikh&#x7B49;&#xFF0C;2016)&#x3002;</p>
+<p>&#x200B;        &#x5982;&#x4F55;&#x81EA;&#x52A8;&#x8BC4;&#x4F30;&#x751F;&#x6210;&#x7684;&#x89E3;&#x91CA;&#x7684;&#x8D28;&#x91CF;&#x4ECD;&#x7136;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x5F85;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x770B;&#x5230;&#xFF0C;&#x81EA;&#x52A8;&#x7684;&#x8861;&#x91CF;&#x6807;&#x51C6;&#xFF0C;&#x4F8B;&#x5982;BLUE&#x5206;&#x6570;&#xFF0C;&#x662F;&#x4E0D;&#x5408;&#x9002;&#x7684;&#x3002;</p>
+<p>&#x200B;        &#x5982;&#x4F55;&#x9A8C;&#x8BC1;&#x751F;&#x6210;&#x7684;&#x89E3;&#x91CA;&#x662F;&#x5426;&#x5FE0;&#x5B9E;&#x5730;&#x63CF;&#x8FF0;&#x4E86;&#x6A21;&#x578B;&#x7684;&#x51B3;&#x7B56;&#x8FC7;&#x7A0B;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x653E;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../第四章/第四章.html" class="navigation navigation-prev " aria-label="Previous page: 第四章 验证基于特征的事后解释方法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../第六章/第六章.html" class="navigation navigation-next " aria-label="Next page: 第六章 验证产生自然语言解释的神经网络">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"第五章 生成自然语言解释的神经网络","level":"6.1","depth":1,"next":{"title":"第六章 验证产生自然语言解释的神经网络","level":"7.1","depth":1,"path":"第六章/第六章.md","ref":"第六章/第六章.md","articles":[]},"previous":{"title":"第四章 验证基于特征的事后解释方法","level":"5.1","depth":1,"path":"第四章/第四章.md","ref":"第四章/第四章.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","favicon","mathjax-pro","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"pluginsConfig":{"summary":{"excludeDir":["image"],"readme":"README.md","summary":"SUMMARY.md","introduction":{"title":"introduction","file":"README.md"}}},"github":{"url":"https://github.com/Blankj"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"./source/images/donate.png","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"./source/images/favicon.jpg","bookmark":"./source/images/favicon.jpg","appleTouch":"./source/images/apple-touch-icon.jpg","appleTouchMore":{"120x120":"./source/images/apple-touch-icon.jpg","180x180":"./source/images/apple-touch-icon.jpg"}},"github-buttons":{"buttons":[{"user":"Blankj","repo":"glory","type":"star","size":"small","count":true}]},"mathjax-pro":{"forceSVG":false,"version":"2.7.7"},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Blankj","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Blankj's Glory","language":"zh-hans","links":{"sidebar":{"我的狗窝":"https://blankj.com"}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"第五章/第五章.md","mtime":"2020-10-23T09:54:01.290Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-23T12:59:43.801Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax-pro/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
